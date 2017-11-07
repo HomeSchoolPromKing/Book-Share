@@ -46,7 +46,7 @@ class Search {
         $db = Database::getInstance();
         
         $sql = "SELECT * FROM Books "
-                . "WHERE MATCH(ISBN, Title, Author) "
+                . "WHERE MATCH('Title', 'Author', 'ISBN') "
                 . "AGAINST ('$query')" ;
         
         $results = $db->runQuery($sql);

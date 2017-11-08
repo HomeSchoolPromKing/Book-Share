@@ -9,6 +9,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link href="CSS/Styles.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+    <script>
+		$(document).ready(function() {
+            $("#signup-wrapper").hide();
+            /*
+            For backend people:
+            if user is signed out, hide logged-in class, else, hide logged-out class
+            */
+            
+			//$(".logged-in").hide();
+            //$(".logged-out").hide();
+		});
+	</script>
     
     </head>
     
@@ -17,14 +31,25 @@
             <div class="nav">
                 <ul>
                     <li><a href="#" class="active">Home</a></li>
+                    <li class="logged-out"><a href="login.html">Login</a></li>
+                    <li id="sign-up" class="logged-out"><a href="#">Sign-Up</a></li>
+                    <li class="logged-in"><a href="#">My Profile</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="#">My Profile</a></li>
                 </ul>
             </div>
         </header>
+        
+        <script>
+            $(document).ready(function() {
+                $('#sign-up').click(() => {
+                    document.getElementById("signup-wrapper").style.visibility = "visible";
+                    $("#home-search").delay(250).fadeOut();
+                    $("#signup-wrapper").delay(650).fadeIn();
+                });
+            });
+        </script>
     
-        <main>
+        <main id="home-search">
             <div id="logo">
                 <img src="images/bookshare-logo.png" alt="Bookshare Logo" />
             </div>
@@ -35,8 +60,21 @@
                 </div>
             </form>
         </main>
-
-
+        
+        <div id="signup-wrapper">
+            <div id="main">
+                <div id="signup-container">
+                    <form id="signupForm" action="Model/signup.php" method="post">
+                        <img src="images/bookshare-logo.png" alt="BookShare Logo" width="180" height="120" />
+                        <label for="signup-email">Email:<input type="email" name="signup-email" required /></label>
+                        <label for="signup-username">Username:<input type="text" name="signup-username" maxlength="18" required /></label>
+                        <label for="signup-password">Password:<input type="text" name="signup-password" maxlength="18" required /></label>
+                        <input type="submit" value="Get Started" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        
         <footer class="footer">
             <p>&copy; Bookshare 2017</p>
         </footer>

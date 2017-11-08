@@ -6,10 +6,10 @@ Date: 11/7/2017
 
         <?php
         
-include 'database.php'; //connect to db
+//include 'database.php'; //connect to db
 
 
-   session_start();
+  // session_start();
 
 
 
@@ -17,8 +17,9 @@ include 'database.php'; //connect to db
         
 
 // create variables
-  $membername = filter_input(INPUT_POST, 'membername');
-  $memberpassword = filter_input(INPUT_POST, 'memberpassword');
+  $membername = filter_input(INPUT_POST, 'login-username');
+  $memberpassword = filter_input(INPUT_POST, 'login-password');
+  echo ("Member name: " . $membername . "Password: " . $memberpassword);
   
 
 
@@ -50,7 +51,7 @@ include 'database.php'; //connect to db
            echo 'Error in searching user database.';
        }
               // Display the index page, which will redirect to home if the user is logged in
-        include('index.php');
+        include('../index.html');
        
         // Catch other errors and display error message
     } catch (Exception $ex) {

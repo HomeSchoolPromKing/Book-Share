@@ -11,9 +11,13 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        require_once 'Search.class.php';
+        require_once 'Model/Search.class.php';
         
-        $books = Search::fuzzy_search("adam");
+        $searchTerm = filter_input(INPUT_GET, "search");
+        
+        echo($searchTerm);
+        
+        $books = Search::fuzzy_search($searchTerm);
         
         echo "<table> "
         . "<tr><th>ISBN</th><th>Title</th><th>Author</th></tr>";

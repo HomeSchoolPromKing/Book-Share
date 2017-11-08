@@ -1,0 +1,190 @@
+/*  Login  */
+
+/*  General Styles  */
+
+#login-body {
+	font-size: 100%;
+	color: #000000;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #222222;
+	overflow-x: hidden;
+}
+
+/*  Form Styles  */
+
+#loginForm {
+	display: block;
+	color: #222222;
+	text-align: center;
+}
+
+#loginForm img {
+	margin-top: -4em;
+	margin-bottom: 2em;
+	border-bottom: 3px solid #106caf;
+}
+
+#loginForm label {
+	display: inline-block;
+	margin-bottom: 1em;
+	font-size: 120%;
+}
+
+#loginForm input {
+	display: block;
+	background-color: #FFFFFF;
+	color: #000000;
+	border: 1px solid #E0E0E0;
+	-webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+	-moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+	box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+	text-align: center;
+	padding: 1em 2em 1em 2em;
+	margin-bottom: 1em;
+	transition: all 0.2s;
+}
+
+#loginForm input[type=submit] {
+	display: block;
+	background-color: #106caf;
+	color: #E3E3E6;
+	border: none;
+	font-size: 105%;
+	margin: 0 auto;
+	margin-top: 1em;
+	padding: 0.75em 4em 0.75em 4em;
+}
+
+#loginForm input[type=submit]:hover {
+	cursor: pointer;
+	background-color: #0a4b7b;
+	color: #fff;
+	transition: 300ms;
+}
+#loginForm input:hover, #loginForm input:focus, #loginForm input:active {
+	-webkit-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
+	outline: none;
+}
+
+/*  Class Styles  */
+
+.login-wrapper {
+	margin: 0 auto;
+	width: 26em;
+	position: relative;
+}
+
+/*  ID Styles  */
+
+#main {
+	background-color: #F7F7F7;
+	margin-top: 8em;
+	margin-bottom: 8em;
+	-webkit-box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.8);
+	-moz-box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.8);
+	box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.8);
+	font-family: Verdana, sans-serif;
+	transition: all 0.2s;
+}
+
+#login-container {
+	display: block;
+	padding: 2em;
+}
+
+#loginForm {
+	padding: 4em;
+}
+
+#loginForm h1 {
+	border-bottom: 3px solid #0080FF;
+	width: 100%;
+	padding: 0.6em 0 0.6em 0;
+	font-weight: normal;
+	font-size: 225%;
+	margin-top: -1em;
+	margin-bottom: 1em;
+}
+
+/*  Home  */
+
+#home-body {
+	font-family: Arial, Helvetica, sans-serif;
+	width: 80%;
+	margin: 0 auto;
+	background-color: #ffffff;
+}
+/* Navigation */
+.nav {
+	
+}
+.nav li {
+	display: inline-block;
+	padding-left: 10px;
+}
+.nav ul {
+	margin-top: 20px;
+	text-align: right;
+	display: block;	
+}
+.nav a {
+	text-decoration: none;
+	padding-left: 5px;
+	color: gray;
+}
+.nav a:hover{
+	color: black;
+}
+/* Main Content */
+#logo {
+	width: 356px;
+	height: 250px;
+	margin: 0 auto;
+	display: block;
+	margin-top: 50px;
+}
+#booksearch {
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+#search {
+	display: inline-block;
+	width: 500px;
+	font-size: 16px; 
+	padding: 4px;
+	border-radius: 5px 0 0 5px;
+	-moz-border-radius: 5px 0 0 5px;
+	-webkit-border-radius: 5px 0 0 5px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+#submit {
+	display: inline-block;
+	position: absolute;
+	background-color: #106caf; /* dark blue  */
+	font-size: 16px; 
+	padding: 5px;
+	border: none;
+	border-radius: 0 5px 5px 0;
+	-moz-border-radius: 0 5px 5px 0;
+	-webkit-border-radius: 0 5px 5px 0;
+	color: #ffffff; /* white */
+}
+#submit:hover {
+	background-color: black;
+	cursor: pointer;
+}
+/* Footer */
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #eaecef;   /* gray */
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}

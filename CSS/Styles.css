@@ -19,6 +19,7 @@
 	display: block;
 	color: #222222;
 	text-align: center;
+    padding: 4em;
 }
 
 #loginForm img {
@@ -72,17 +73,15 @@
 	outline: none;
 }
 
-/*  Class Styles  */
+/*  ID Styles  */
 
-.login-wrapper {
+#login-wrapper {
 	margin: 0 auto;
 	width: 26em;
 	position: relative;
 }
 
-/*  ID Styles  */
-
-#main {
+#login-wrapper #main {
 	background-color: #F7F7F7;
 	margin-top: 8em;
 	margin-bottom: 8em;
@@ -96,20 +95,6 @@
 #login-container {
 	display: block;
 	padding: 2em;
-}
-
-#loginForm {
-	padding: 4em;
-}
-
-#loginForm h1 {
-	border-bottom: 3px solid #0080FF;
-	width: 100%;
-	padding: 0.6em 0 0.6em 0;
-	font-weight: normal;
-	font-size: 225%;
-	margin-top: -1em;
-	margin-bottom: 1em;
 }
 
 /*  Home  Page  */
@@ -205,6 +190,87 @@
 #submit:hover {
 	background-color: #000000;
 	cursor: pointer;
+}
+
+#signupForm {
+	display: block;
+	color: #222222;
+	text-align: center;
+    padding: 4em;
+}
+
+#signupForm img {
+	margin-top: -4em;
+	margin-bottom: 2em;
+	border-bottom: 3px solid #106caf;
+}
+
+#signupForm label {
+	display: inline-block;
+	margin-bottom: 1em;
+	font-size: 120%;
+}
+
+#signupForm input {
+	display: block;
+	background-color: #FFFFFF;
+	color: #000000;
+	border: 1px solid #E0E0E0;
+	-webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+	-moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+	box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+	text-align: center;
+	padding: 1em 2em 1em 2em;
+	margin-bottom: 1em;
+	transition: all 0.2s;
+}
+
+#signupForm input[type=submit] {
+	display: block;
+	background-color: #106caf;
+	color: #E3E3E6;
+	border: none;
+	font-size: 105%;
+	margin: 0 auto;
+	margin-top: 1em;
+	padding: 0.75em 4em 0.75em 4em;
+}
+
+#signupForm input[type=submit]:hover {
+	cursor: pointer;
+	background-color: #0a4b7b;
+	color: #fff;
+	transition: 300ms;
+}
+
+#signupForm input:hover, #signupForm input:focus, #signupForm input:active {
+	-webkit-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
+	outline: none;
+}
+
+#signup-wrapper {
+    visibility: hidden;
+	margin: 0 auto;
+	width: 26em;
+	position: relative;
+}
+
+#signup-wrapper #main {
+	background-color: #F7F7F7;
+	margin-top: 8em;
+	margin-bottom: 8em;
+	-webkit-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.5);
+	font-family: Verdana, sans-serif;
+	transition: all 0.2s;
+}
+
+#signup-container {
+	display: block;
+	padding: 2em;
 }
 
 /*  Class Styles  */

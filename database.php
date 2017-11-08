@@ -3,6 +3,8 @@
  * Purpose: This file establishes the database connection
  * Author: Kat Farley
  * Date: 11/3/2017
+ * 
+ * Zack's new test comment
  */
 
 $dsn = 'mysql:host=localhost;dbname=bookshare';

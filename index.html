@@ -1,38 +1,46 @@
-<!DOCTYPE html> 
-<head>
-<title>BookShare</title>
-<link href="images/Icon.png" rel="shortcut icon" type="image/x-icon" />
-<meta charset="UTF-8">
-<link href="CSS/Styles.css" rel="stylesheet">
-<!-- test -->
-</head>
-<body id="home-body">
-<!-- Navigation -->
-<header>
-	<div class="nav">
-		<ul>
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="login.html">Login</a></li>
-			<li><a href="#">My Profile</a></li>
-		</ul>
-	</div>
-</header>
-<!-- Main Content -->
-<main>
-	<div id="logo">
-		<img src="images/bookshare-logo.png" id="logo" alt="Bookshare Logo">
-	</div>
-<form action="Model/fuzzy_search_test_index.php" method="get">
-	<div id="booksearch">
-            <input id="search" name="search" type="text" placeholder="Search by Title, Author, ISBN">
-            <input id="submit" type="submit" value="Search">
-	</div>
-</form>
-</main>
-<!-- Footer -->
-<footer class="footer">
-	<p>&copy; Bookshare 2017</p>
-</footer>
-</body>
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+    
+    <title>BookShare | Home</title>
+    <link href="images/Icon.png" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link href="CSS/Styles.css" rel="stylesheet">
+    
+    </head>
+    
+    <body id="home-body">
+        <header>
+            <div class="nav">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="#">My Profile</a></li>
+                </ul>
+            </div>
+        </header>
+    
+        <main>
+            <div id="logo">
+                <img src="images/bookshare-logo.png" alt="Bookshare Logo" />
+            </div>
+            <form action="Model/fuzzy_search_test_index.php" method="get">
+                <div id="booksearch">
+                    <input id="search" name="search" type="text" placeholder="Search by Title, Author, ISBN" required />
+                    <input id="submit" type="submit" value="Search" />
+                </div>
+            </form>
+        </main>
+
+
+        <footer class="footer">
+            <p>&copy; Bookshare 2017</p>
+        </footer>
+    
+    </body>
+    
 </html>

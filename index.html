@@ -45,6 +45,14 @@
                     document.getElementById("signup-wrapper").style.visibility = "visible";
                     $("#home-search").delay(250).fadeOut();
                     $("#signup-wrapper").delay(650).fadeIn();
+                    document.getElementById("home-body").style.backgroundColor = "#222222";
+                });
+                
+                $('#signup-close').click(() => {
+                    document.getElementById("signup-wrapper").style.visibility = "hidden";
+                    $("#signup-wrapper").delay(250).fadeOut();
+                    $("#home-search").delay(650).fadeIn();
+                    document.getElementById("home-body").style.backgroundColor = "#FFFFFF";
                 });
             });
         </script>
@@ -64,6 +72,7 @@
         <div id="signup-wrapper">
             <div id="main">
                 <div id="signup-container">
+                   <a id="signup-close">X</a>
                     <form id="signupForm" action="Model/signup.php" method="post">
                         <img src="images/bookshare-logo.png" alt="BookShare Logo" width="180" height="120" />
                         <label for="signup-email">Email:<input type="email" name="signup-email" required /></label>

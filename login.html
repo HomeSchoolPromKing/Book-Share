@@ -14,7 +14,19 @@
 	
 	<body id="login-body">
 	
-	<div class="login-wrapper">
+	<header>
+        <div class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="logged-out"><a href="#" class="active">Login</a></li>
+                <li id="sign-up" class="logged-out"><a href="#">Sign-Up</a></li>
+                <li class="logged-in"><a href="#">My Profile</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+    </header>
+	
+	<div id="login-wrapper">
 		<div id="main">
 			<div id="login-container">
                 <form id="loginForm" action="Model/login.php" method="post">
@@ -26,6 +38,10 @@
 			</div>
 		</div>
 	</div>
+	
+	<footer class="footer">
+        <p>&copy; Bookshare 2017</p>
+    </footer>
 	
 	</body>
 	

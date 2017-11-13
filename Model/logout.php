@@ -7,7 +7,7 @@ Date: 11/7/2017
 <?php
 
 
-include 'database.php'; //connect to db
+require_once 'database.php'; //connect to db
         
 
 session_start();
@@ -18,19 +18,18 @@ session_start();
 if(isset($_SESSION['valid_user'])) {
     unset($_SESSION['valid_user']);
     session_destroy();
-
-    echo 'You are now logged out.';
-
-           // Display the index page
-            include('index.php');
+   
+    // Display index page
+    header("Location:../index.php");
         
 }
 
-// else display an error message
+
 else {
-    echo 'User not logged in.';
-    // Display the index page
-    include('index.php');
+ 
+    // Display an error page
+     include 'Model/logout_error.php';
+   
 }
     
     ?>

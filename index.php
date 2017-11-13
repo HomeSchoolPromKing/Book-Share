@@ -10,44 +10,43 @@
     <meta charset="UTF-8">
     <link href="CSS/Styles.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    
-    <script>
-		$(document).ready(function() {
-            $("#signup-wrapper").hide();
-            
-    </script>
-    <?php
-            /*
-            For backend people:
-            if user is signed out, hide logged-in class, else, hide logged-out class
-            */
-           
-           if(isset($_SESSION['valid_user'])) {
-               $(".logged-in").hide();
-           }
-           else {
-               $(".logged-out").hide();
-           }
-           
-           ?>
-            
-    ?>
-	
+          
     
     </head>
+
     
     <body id="home-body">
-        <header>
-            <div class="nav">
-                <ul>
-                    <li><a href="#" class="active">Home</a></li>
-                    <li class="logged-out"><a href="login.html">Login</a></li>
-                    <li id="sign-up" class="logged-out"><a href="#">Sign-Up</a></li>
-                    <li class="logged-in"><a href="#">My Profile</a></li>
-                    <li><a href="#">About</a></li>
-                </ul>
-            </div>
-        </header>
+        
+        
+            
+    <script>
+            $(document).ready(function() {
+            $("#signup-wrapper").hide();
+            
+            
+    </script>
+
+         <?php 
+         
+
+           // Check if a session is open before trying to start
+           if (session_status() == PHP_SESSION_NONE) {
+                     session_start();
+           }
+          
+           // If the user is logged in, display logged in header
+           // NOTE: Alternatively, we can make one header file and control display inside of it
+           if(isset($_SESSION['valid_user'])) {
+               include 'header_loggedin.php'; 
+               
+           }
+           
+           // If the user is logged out, display logged out header
+           else {
+               include 'header_loggedout.php';
+               
+           }
+        ?>
         
         <script>
             $(document).ready(function() {
@@ -55,14 +54,6 @@
                     document.getElementById("signup-wrapper").style.visibility = "visible";
                     $("#home-search").delay(250).fadeOut();
                     $("#signup-wrapper").delay(650).fadeIn();
-                    document.getElementById("home-body").style.backgroundColor = "#222222";
-                });
-                
-                $('#signup-close').click(() => {
-                    document.getElementById("signup-wrapper").style.visibility = "hidden";
-                    $("#signup-wrapper").delay(250).fadeOut();
-                    $("#home-search").delay(650).fadeIn();
-                    document.getElementById("home-body").style.backgroundColor = "#FFFFFF";
                 });
             });
         </script>
@@ -82,7 +73,6 @@
         <div id="signup-wrapper">
             <div id="main">
                 <div id="signup-container">
-                   <a id="signup-close">X</a>
                     <form id="signupForm" action="Model/signup.php" method="post">
                         <img src="images/bookshare-logo.png" alt="BookShare Logo" width="180" height="120" />
                         <label for="signup-email">Email:<input type="email" name="signup-email" required /></label>

@@ -6,10 +6,10 @@ Date: 11/7/2017
 
         <?php
         
-//include 'database.php'; //connect to db
+require_once 'database.php'; //connect to db
 
 
-  // session_start();
+   session_start();
 
 
 
@@ -19,12 +19,12 @@ Date: 11/7/2017
 // create variables
   $membername = filter_input(INPUT_POST, 'login-username');
   $memberpassword = filter_input(INPUT_POST, 'login-password');
-  echo ("Member name: " . $membername . "Password: " . $memberpassword);
+
   
 
 
 
-    // 
+   
     try {
         
     // Query database
@@ -43,20 +43,23 @@ Date: 11/7/2017
        // if 1 value returned, start a session and register the username ($membername)
        if ($usercount == 1) {
         
-        $_SESSION['valid_user'] = $membername;
+            $_SESSION['valid_user'] = $membername;
+             // Display the index page
+            header("Location:../index.php");
        }
        
        // if more than 1 or less than 1 value returned, display error message
        else {
            echo 'Error in searching user database.';
+           include 'login_error.php';
        }
-              // Display the index page, which will redirect to home if the user is logged in
-        include('../index.html');
+
        
         // Catch other errors and display error message
     } catch (Exception $ex) {
         // unsuccessful login
-        echo 'You could not be logged in.';
+            // Display an error page
+        include 'login_error.php';
         exit;
     }   
     

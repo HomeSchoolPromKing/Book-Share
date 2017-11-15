@@ -58,7 +58,19 @@
             });
         </script>
     
-        <main id="home-search">
+        <header>
+            <div class="nav">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li class="logged-out"><a href="login.html">Login</a></li>
+                    <li id="sign-up" class="logged-out"><a href="#">Sign-Up</a></li>
+                    <li class="logged-in"><a href="#">My Profile</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+        </header>
+		
+		<main id="home-search">
             <div id="logo">
                 <img src="images/bookshare-logo.png" alt="Bookshare Logo" />
             </div>
@@ -75,9 +87,9 @@
                 <div id="signup-container">
                     <form id="signupForm" action="Model/signup.php" method="post">
                         <img src="images/bookshare-logo.png" alt="BookShare Logo" width="180" height="120" />
-                        <label for="signup-email">Email:<input type="email" name="signup-email" required /></label>
-                        <label for="signup-username">Username:<input type="text" name="signup-username" maxlength="18" required /></label>
-                        <label for="signup-password">Password:<input type="text" name="signup-password" maxlength="18" required /></label>
+                        <label for="signup-email">Email:<input type="email" id="signup-email" name="signup-email" required /></label>
+                        <label for="signup-username">Username:<input type="text" id="signup-username" name="signup-username" maxlength="18" required /></label>
+                        <label for="signup-password">Password:<input type="text" id="signup-password" name="signup-password" maxlength="18" required /></label>
                         <input type="submit" value="Get Started" />
                     </form>
                 </div>
@@ -87,7 +99,7 @@
         <footer class="footer">
             <p>&copy; Bookshare 2017</p>
         </footer>
-    
+		
     </body>
     
 </html>

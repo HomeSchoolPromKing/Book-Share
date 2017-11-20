@@ -1,3 +1,42 @@
+/* Profile Page */
+/**********************************************/
+
+#profileLogo {
+	display: block;
+	max-width: 10%;
+	max-height: 10%;
+	margin: 0 auto;
+}
+
+#links {
+	padding-top: 1em;
+	text-align: center;
+	font-family: Arial, Helvetica, Sans-Serif;
+}
+
+#newListing {
+	text-decoration: none;
+	display: inline-block;
+}
+
+#newListing a {
+	text-decoration: none;
+	padding-right: 1em;
+}
+
+#toggle {
+	text-decoration: none;
+}
+
+#active {
+	display: none;
+}
+
+#user h2 {
+	padding-top: 2em;
+	text-align: center;
+}
+
 /*  Login  Page  */
 /**********************************************/
 

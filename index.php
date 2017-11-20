@@ -33,6 +33,9 @@
            if (session_status() == PHP_SESSION_NONE) {
                      session_start();
            }
+           
+ 
+      
           
            // If the user is logged in, display logged in header
            // NOTE: Alternatively, we can make one header file and control display inside of it
@@ -57,7 +60,7 @@
                 });
             });
         </script>
-    
+    <!-- Commenting out header - this is now coming from header_loggedin_.php and header_loggedout.php - Front end, please adjust as needed (KaF 11/20)
         <header>
             <div class="nav">
                 <ul>
@@ -69,6 +72,7 @@
                 </ul>
             </div>
         </header>
+    -->
 		
 		<main id="home-search">
             <div id="logo">

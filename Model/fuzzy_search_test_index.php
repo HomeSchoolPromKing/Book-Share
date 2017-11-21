@@ -11,7 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        include 'Model/fuzzy_search.php';
+        include 'fuzzy_search.php';
         
         if ($results){
         

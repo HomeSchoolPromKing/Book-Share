@@ -10,7 +10,7 @@
     
     $search = filter_input(INPUT_GET, 'search');
     
-    echo "You searched for '$search'.";
+    //echo "You searched for '$search'.";
 
     
     try {

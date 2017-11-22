@@ -91,7 +91,7 @@
             <div id="logo">
                 <img src="images/bookshare-logo.png" alt="Bookshare Logo" />
             </div>
-            <form action="Model/fuzzy_search_test_index.php" method="get">
+            <form action="results.php" method="get">
                 <div id="booksearch">
                     <input id="search" name="search" type="text" placeholder="Search by Title, Author, ISBN" required />
                     <input id="submit" type="submit" value="Search" />

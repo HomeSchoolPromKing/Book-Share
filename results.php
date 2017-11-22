@@ -28,78 +28,43 @@
 				<input class="button-styles" type="button" value="Save">
 			</form>
 		<!-- Book Description -->
-			<div class="book-desc">
-				<p>
-					<strong>Publisher:</strong>
-					
-				</p>
-				<p>
-					<strong>Date Published:</strong>
-					
-				</p>
-				<p>
-					<strong>ISBN-10:</strong>
-					
-				</p>
-				<p>
-					<strong>ISBN-13:</strong>
-			
-				</p>
-			</div>
 		</div>
 
 		<div class="container-right">
-			<p>Listings for "$search"</p>
-			<table>
-				<tr>
-					<th>User</th>
-					<th>Book Condition</th>
-					<th>Wants</th>
-					<th>Contact</th>
-				</tr>
-				
-				<tr>
-					<td>Username1</td>
-					<td>As New</td>
-					<td>Money</td>
-					<td><a href="#">Contact User</a></td>
-				</tr>
-				
-				<tr>
-					<td>Username2</td>
-					<td>Fine</td>
-					<td>Money</td>
-					<td><a href="#">Contact User</a></td>
-				</tr>
-				
-				<tr>
-					<td>Username3</td>
-					<td>Very Good</td>
-					<td>Money</td>
-					<td><a href="#">Contact User</a></td>
-				</tr>
-				
-				<tr>
-					<td>Username4</td>
-					<td>Good</td>
-					<td>Trade</td>
-					<td><a href="#">Contact User</a></td>
-				</tr>
-				
-				<tr>
-					<td>Username5</td>
-					<td>Fair</td>
-					<td>Trade</td>
-					<td><a href="#">Contact User</a></td>
-				</tr>
-				
-				<tr>
-					<td>Username6</td>
-					<td>Poor</td>
-					<td>Donate</td>
-					<td><a href="#">Contact User</a></td>
-				</tr>
-			</table>
+			<?php
+        include 'Model/fuzzy_search.php';
+		
+		echo "You searched for '$search'.";
+        
+        if ($results){
+        
+            echo "<table> " ;
+            echo "<tr>"
+            . "<th>Title</th>"
+                    . "<th>Author</th>"
+                    . "<th>ISBN_10</th>"
+                    . "<th>ISBN_13</th>"
+                    . "<th>Owner</th>"
+                    . "<th>Wants</th>"
+                    . "</tr>";
+
+			//"$results" is an associative array of the Search results
+			//This loop iterates through each record
+            foreach($results as $result){
+
+                echo "<tr><td>";
+                echo $result['title'] . "</td><td>";
+                echo $result['author'] . "</td><td>";
+                echo $result['ISBN-10'] . "</td><td>";
+                echo $result['ISBN-13'] . "</td><td>";
+                echo $result['owner'] . "</td><td>";
+                echo $result['wants'] . "</td></tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "<br><br>No results found.";
+        }
+        ?>
 		</div>
 	</div>
 		

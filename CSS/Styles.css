@@ -560,6 +560,50 @@
     display: inline-block;
 }
 
+/*  Results  Page  */
+/**********************************************/
+
+/* Main Content */
+.container {
+	width: 90%;
+	margin: 3em auto;
+	padding: 1em;
+}
+
+.container-left {
+	display: inline-block;
+	width: 15%;
+	margin: 2em 0 2em 0;
+	text-align: left;
+    border-right: 1px solid #a1a1a1;
+}
+
+.container-left p, h3, h4 {
+	margin: 0;
+}
+
+#sort-condition {
+	margin-bottom: 1em;
+}
+
+.container-right {
+	vertical-align: top;
+	display: inline-block;
+	width: 75%;
+	padding: 1em;
+}
+
+/* Table */
+table {
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: separate;
+	text-align: left;
+}
+
+
+/*  Mobile Styles  */
+/**********************************************/
 @media only screen and (max-width: 1024px) {
 	.desktop-nav {
 		visibility: hidden;

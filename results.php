@@ -1,33 +1,76 @@
 <!DOCTYPE html>
-<head>
-	<title>BookShare</title>
-	<link href="images/Icon.png" rel="shortcut icon" type="image/x-icon" />
-	<link rel="stylesheet" type="text/css" href="CSS/stylesheet.css">
-</head>
-<body>
+<html>
+
+    <head>
+    
+    <title>BookShare | Results</title>
+    <link href="images/Icon.png" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link href="CSS/Styles.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+          
+    </head>
+	
+<body id="home-body">
 	<!--///// Navbar /////-->
-	<div class="nav">
+	<div class="desktop-nav">
 		<ul>
-			<li><a href="#">Home</a></li>
+			<li><a href="index.php">Home</a></li>
+			<li class="logged-out"><a href="login.php">Login</a></li>
+			<li id="sign-up2" class="logged-out"><a href="#">Sign-Up</a></li>
+			<li class="logged-in"><a href="account.php">My Profile</a></li>
 			<li><a href="#">About</a></li>
-			<li><a href="login.html">Login</a></li>
-			<li><a href="#">My Profile</a></li>
 		</ul>
 	</div>
 	
 	<!--///// Results /////-->
 	<div class="container">
 		<div class="container-left">
-			<img id="results-img" src="images/book-image.jpg" alt="Book Title by Author"/>
-			<h3>Book Title</h3>
-			<h4>Edition</h4>
-			<p>by <a href="#">Author</a><p>
+			<h2>Sort Results</h2>
 			
-			<form>
-				<input class="button-styles" type="button" value="Make a Listing"><br>
-				<input class="button-styles" type="button" value="Save">
-			</form>
-		<!-- Book Description -->
+			<div id="sort-condition">
+				<h3>Condition</h3>
+					<form action="" method="post">
+						<input type="checkbox" id="condition-new" name="book_condition" value="new">
+							 <label for="condition-new">New</label><br />
+
+						<input type="checkbox" id="condition-fine" name="book_condition" value="fine">
+							 <label for="condition-fine">Fine</label><br />
+							 
+						<input type="checkbox" id="condition-vgood" name="book_condition" value="vgood">
+							 <label for="condition-vgood">Very Good</label><br />
+							 
+						<input type="checkbox" id="condition-good" name="book_condition" value="good">
+							 <label for="condition-good">Good</label><br />
+							 
+						<input type="checkbox" id="condition-fair" name="book_condition" value="fair">
+							 <label for="condition-fair">Fair</label><br />
+							 
+						<input type="checkbox" id="condition-poor" name="book_condition" value="poor">
+							 <label for="condition-poor">Poor</label><br />
+					</form>
+			</div>
+			
+			<div id="sort-loan-type">
+				<h3>Loan Type</h3>
+					<form action="" method="post">
+						<input type="checkbox" id="free" name="loan_type" value="free">
+							 <label for="free">Free</label><br />
+							 
+						<input type="checkbox" id="loan" name="loan_type" value="loan">
+							 <label for="loan">Loan</label><br />
+							 
+						<input type="checkbox" id="barter" name="loan_type" value="barter">
+							 <label for="barter">Barter</label><br />
+							 
+						<input type="checkbox" id="sell" name="loan_type" value="sell">
+							 <label for="sell">Sell</label><br />
+							 
+						<input type="checkbox" id="other" name="loan_type" value="other">
+							 <label for="other">Other</label><br />
+					</form>
+			</div>
 		</div>
 
 		<div class="container-right">

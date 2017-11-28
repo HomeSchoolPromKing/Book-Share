@@ -35,8 +35,8 @@
                 <ul id="menu">
                     <a href="#"><li class="active">Home</li></a>
                     <a href="logout.php"><li class="logged-in">Logout</li></a>
-                    <a href="account.php"><li class="logged-in">My Profile</li></a>
-                    <a href="#"><li>About</li></a>
+                    <a href="profile.php"><li class="logged-in">My Profile</li></a>
+                    <a href="support.php"><li>Support</li></a>
                 </ul>
             </div>
         </nav>

@@ -50,6 +50,7 @@
 					<label for="login-password">Password:<input type="text" name="login-password" maxlength="18" required /></label>
 					<input type="submit" id="sign-in" value="Sign In" />
 				</form>
+				<input type="button" id="signUp" onclick="location.href='signupform.php';" value="Sign-Up" />
 			</div>
 		</div>
 	</div>

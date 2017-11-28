@@ -14,9 +14,7 @@ TODO: redirect if not logged in
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
         <style>
-            #options {
-                display: none;
-            }
+            
         </style>
         <link href="CSS/styles" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>

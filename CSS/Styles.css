@@ -323,7 +323,8 @@
     transition: all 0.2s;
 }
 
-#booksearch input:hover, #booksearch input:focus, #booksearch input:active {
+#booksearch input:hover, #booksearch input:focus, 
+#booksearch input:active, #search-submit:hover {
 	-webkit-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
 	-moz-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
 	box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
@@ -340,20 +341,22 @@
     border-radius: 5px 0 0 5px;
 }
 
-#submit {
+button#search-submit {
 	display: inline-block;
 	position: absolute;
 	background-color: #106CAF;
-	font-size: 16px; 
-	padding: 5px;
+	padding: .83em 1.2em;
 	border: none;
-	-moz-border-radius: 0 5px 5px 0;
-	-webkit-border-radius: 0 5px 5px 0;
-    border-radius: 0 5px 5px 0;
+	-moz-border-radius: 0 10px 10px 0;
+	-webkit-border-radius: 0 10px 10px 0;
+    border-radius: 0 10px 10px 0;
 	color: #FFFFFF;
 }
 
-#submit:hover {
+button#search-submit i {
+	font-size: 2em;
+}
+#search-submit:hover {
 	background-color: #000000;
 	cursor: pointer;
 }
@@ -617,6 +620,10 @@ table {
 		width: 35%;
 	}
     
+	#booksearch {
+        margin-left: -10%;
+    }
+	
     #booksearch #search {
         width: 65%;
     }
@@ -625,6 +632,10 @@ table {
         padding: 0.75em 0.35em 0.75em 0.35em;
     }
     
+	button#search-submit {
+		padding: 0.56em 1em;
+	}
+	
     #account-menu {
         font-size: 80%;
         width: 30%;

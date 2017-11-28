@@ -9,21 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link href="CSS/Styles.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
           
     </head>
 
     
     <body id="home-body">
-        
-        
-            
-    <script>
-        $(document).ready(function() {
-            $("#signup-wrapper").hide();
-        });
-    </script>
 
         <?php 
          
@@ -43,24 +34,6 @@
             include 'header_loggedout.php';
         }
         ?>
-        
-        <script>
-            $(document).ready(function() {
-                $('#sign-up').click(() => {
-                    document.getElementById("signup-wrapper").style.visibility = "visible";
-                    $("#home-search").delay(250).fadeOut();
-                    $("#signup-wrapper").delay(650).fadeIn();
-                    document.getElementById("home-body").style.backgroundColor = "#222222";
-                });
-                
-                $('#signup-close').click(() => {
-                    document.getElementById("signup-wrapper").style.visibility = "hidden";
-                    $("#signup-wrapper").delay(250).fadeOut();
-                    $("#home-search").delay(650).fadeIn();
-                    document.getElementById("home-body").style.backgroundColor = "#FFFFFF";
-                });
-            });
-        </script>
         
         
         <!-- Moved to separate header pages
@@ -107,24 +80,6 @@
             </form>
 		<p>BookShare is website that connects people interested in exchanging used textbooks</p>
         </main>
-		
-        <!--
-        <div id="signup-wrapper">
-            <div id="main">
-                <div id="signup-container">
-                   <a id="signup-close">X</a>
-                    <form id="signupForm" action="Model/signup.php" method="post">
-                        <img src="images/bookshare-logo.png" alt="BookShare Logo" width="180" height="120" />
-                        <label for="signup-email">Email:<input type="email" id="signup-email" name="signup-email" required /></label>
-                        <label for="signup-username">Username:<input type="text" id="signup-username" name="signup-username" maxlength="18" required /></label>
-                        <label for="signup-password">Password:<input type="text" id="signup-password" name="signup-password" maxlength="18" required /></label>
-                        <input type="submit" value="Get Started" />
-                    </form>
-                </div>
-            </div>
-        </div>
-        
-        -->
 		
     </body>
     

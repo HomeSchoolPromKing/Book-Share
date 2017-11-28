@@ -35,7 +35,7 @@
                     <a href="#"><li class="active">Home</li></a>
                     <a href="login.php"><li class="logged-out">Login</li></a>
                     <a href="signupform.php"><li id="sign-up" class="logged-out">Sign-Up</li></a>
-                    <a href="#"><li>About</li></a>
+                    <a href="support.php"><li>Support</li></a>
                 </ul>
             </div>
         </nav>

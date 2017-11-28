@@ -1,3 +1,65 @@
+/* Support Page */
+/**********************************************/
+
+#about h1 {
+	text-align: center;
+	margin-top: 5%;
+}
+
+#about p {
+	margin: 0 auto;
+	text-align: left;
+}
+
+#about {
+	font-family: Arial, Helvetica, Sans-Serif;
+	width: 75%;
+	margin: 0 auto;
+}
+
+#heading2 h1 {
+text-align: center;}
+
+#support {
+	width: 20%;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+
+#support input[type=text], select, textarea {
+    width: 100%; 
+	font-size: 16px;
+    padding: 10px; 
+    border: 1px solid #cccccc; 
+    border-radius: 4px; 
+    -moz-border-radius: 4px; 
+    -webkit-border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    resize: vertical 
+}
+
+#support input[type=submit] {
+	display: inline-block;
+	position: absolute;
+	background-color: #106CAF;
+	font-size: 16px; 
+	padding: 5px;
+	border: none;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+	color: #FFFFFF;
+}
+
+#support input[type=submit]:hover {
+	background-color: #000000;
+	cursor: pointer;
+}
+
+
+
 /* Profile Page */
 /**********************************************/
 
@@ -261,6 +323,16 @@
 	background-size: cover;
 	background-color: #FFFFFF;
 	overflow-x: hidden;
+}
+
+main p  {
+	text-align: center;
+	font-size: 18px;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 20px;
+	color: #106CAF;
 }
 
 /*  Nav Styles  */

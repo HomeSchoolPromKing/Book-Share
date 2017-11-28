@@ -283,6 +283,17 @@ text-align: center;}
 	transition: 300ms;
 }
 
+input#signUp {
+	display: block;
+	background-color: #106caf;
+	color: #E3E3E6;
+	border: none;
+	font-size: 105%;
+	margin: 0 auto;
+	padding: 0.75em 4em 0.75em 4em;
+	
+}
+
 #loginForm input:hover, #loginForm input:focus, #loginForm input:active {
 	-webkit-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
 	-moz-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);

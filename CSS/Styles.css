@@ -63,6 +63,14 @@ text-align: center;}
 /* Profile Page */
 /**********************************************/
 
+.my_table {
+	border-collapse: collapse;
+	border: 2px solid black;
+	margin: 0 auto;
+	width: 55%;
+	margin-top: 150px;
+}
+
 #profileLogo {
 	display: block;
 	max-width: 10%;
@@ -512,7 +520,6 @@ button#search-submit i {
 }
 
 #signup-wrapper {
-    visibility: hidden;
 	margin: 0 auto;
 	width: 26em;
 	position: relative;
@@ -731,15 +738,15 @@ table {
         margin-left: -15%;
     }
     
-    #login-wrapper {
+    #login-wrapper, #signup-wrapper {
         width: 100%;
     }
     
-    #loginForm input {
+    #loginForm input, #signupForm input {
         padding: 0.55em 0.75em 0.55em 0.75em;
     }
     
-    #loginForm label {
+    #loginForm label, #signupForm label {
         font-size: 85%;
     }
 }

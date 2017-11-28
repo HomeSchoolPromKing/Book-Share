@@ -18,9 +18,9 @@
 		<ul>
 			<li><a href="index.php">Home</a></li>
 			<li class="logged-out"><a href="login.php">Login</a></li>
-			<li id="sign-up2" class="logged-out"><a href="#">Sign-Up</a></li>
-			<li class="logged-in"><a href="account.php">My Profile</a></li>
-			<li><a href="#">About</a></li>
+			<li id="sign-up2" class="logged-out"><a href="signupform.php">Sign-Up</a></li>
+			<li class="logged-in"><a href="profile.php">My Profile</a></li>
+			<li><a href="support.php">Support</a></li>
 		</ul>
 	</div>
 	

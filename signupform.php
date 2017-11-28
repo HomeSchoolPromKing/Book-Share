@@ -9,14 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link href="CSS/Styles.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="JS/stopFlash.js"></script>
           
     </head>
 
     
-    <body>  
+    <body id="login-body" style="visibility: hidden;" onload="js_Load()"> <!-- Fixes the weird split second flash of unstyled page - Forces everything hidden, then visible once all loaded -->
         
-  <?php 
+	<?php 
   
           // Check if a session is open before trying to start
         if (session_status() == PHP_SESSION_NONE) {
@@ -44,19 +44,47 @@
         }
     ?>
 
-
-
-    <form id="signupForm" action="Model/signup.php" method="post">
-        <img src="images/bookshare-logo.png" alt="BookShare Logo" width="180" height="120" />
-        <label for="signup-email">Email:<input type="email" id="signup-email" name="signup-email" required /></label>
-        <label for="signup-username">Username:<input type="text" id="signup-username" name="signup-username" maxlength="18" required /></label>
-        <label for="signup-password">Password:<input type="text" id="signup-password" name="signup-password" maxlength="18" required /></label>
+	<nav class="desktop-nav">
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li class="logged-out"><a href="login.php">Login</a></li>
+            <li id="sign-up" class="logged-out"><a href="#" class="active">Sign-Up</a></li>
+            <li class="logged-in"><a href="account.php">My Profile</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
         
-        <!-- Added confirmation field for password - KaF 11/27 -->
-        
-        <label for="signup-password">Confirm Password:<input type="text" id="signup-password-conf" name="signup-password-conf" maxlength="18" required /></label>
-        <input type="submit" value="Get Started" />
-    </form>
+    <nav class="mobile-nav">
+        <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+                <a href="index.php"><li>Home</li></a>
+                <a href="login.php"><li class="logged-out">Login</li></a>
+                <a href="#"><li id="sign-up" class="logged-out active">Sign-Up</li></a>
+                <a href="account.php"><li class="logged-in">My Profile</li></a>
+                <a href="#"><li>About</li></a>
+            </ul>
+        </div>
+    </nav>
+
+	
+	<div id="signup-wrapper">
+		<div id="main">
+			<div id="signup-container">
+				<form id="signupForm" action="Model/signup.php" method="post">
+					<img src="images/bookshare-logo.png" alt="BookShare Logo" width="180" height="120" />
+					<label for="signup-email">Email:<input type="email" id="signup-email" name="signup-email" required /></label>
+					<label for="signup-username">Username:<input type="text" id="signup-username" name="signup-username" maxlength="18" required /></label>
+					<label for="signup-password">Password:<input type="text" id="signup-password" name="signup-password" maxlength="18" required /></label>
+					<label for="signup-password-conf">Confirm Password:<input type="text" id="signup-password-conf" name="signup-password-conf" maxlength="18" required /></label>
+					<input type="submit" value="Get Started" />
+				</form>
+			</div>
+		</div>
+	</div>
 
         
     </body>

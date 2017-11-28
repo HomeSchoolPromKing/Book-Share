@@ -16,7 +16,7 @@ $(function() {
 </head>
 <body>
 <header>
-	<div class="nav">
+	<div class="desktop-nav">
 		<ul>
 			<li><a href="index.html">Home</a></li>
 			<li class="logged-out"><a href="login.html">Login</a></li>
@@ -31,7 +31,7 @@ $(function() {
 $servername = "localhost";
 $username = "root";
 $password = "root";
-$dbname = "bookshare";
+$dbname = "test";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -56,24 +56,39 @@ if ($conn->connect_error) {
 	<div id="active">
 		<?php
 		$sql = "SELECT * FROM books";
-		$result = $conn->query($sql);
-
-		if ($result->num_rows > 0) {
-			// output data of each row
-			while($row = $result->fetch_assoc()) {
-				echo "<br> ISBN: ". $row["ISBN"]. " -- Title: ". $row["Title"]. " -- Author: " . $row["Author"] . "<br>";
-			}
-		} else {
-			echo "0 results";
+			if($result = mysqli_query($conn, $sql)){
+				if(mysqli_num_rows($result) > 0){
+					echo '<table class="my_table" border=1>';
+						echo "<tr>";
+							echo "<th>ID</th>";
+							echo "<th>ISBN</th>";
+							echo "<th>Title</th>";
+							echo "<th>Author</th>";
+							echo "<th></th>";
+						echo "</tr>";
+			while($row = mysqli_fetch_array($result)){
+						echo "<tr>";
+							echo "<td>" . $row['id'] . "</td>";
+							echo "<td>" . $row['ISBN'] . "</td>";
+							echo "<td>" . $row['Title'] . "</td>";
+							echo "<td>" . $row['Author'] . "</td>";
+							echo "<td><a href=\"Model\delete.php?id=".$row['id']."\">Delete</a></td>";
+						echo "</tr>";
+        }
+					echo '</table>';
+		} 	
+		else {
+			echo "You do not have any active listings.";
 		}
+		} else {
+			echo "Could not execute $sql. " . mysqli_error($conn);
+}
+ 
+		// Close connection
+		mysqli_close($conn);
 
-		$conn->close();
-		?> 
+		?>
 	</div>
 </div>
-<!-- Footer -->
-<footer class="footer">
-    <p>&copy; Bookshare 2017</p>
-</footer>
 </body>
 </html>

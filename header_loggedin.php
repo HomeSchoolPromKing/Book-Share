@@ -21,7 +21,7 @@
                     <li><a href="#" class="active">Home</a></li>
                     <li class="logged-in"><a href="Model/logout.php">Logout</a></li>
                     <li class="logged-in"><a href="#">My Profile</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="support.php">Support</a></li>
                 </ul>
             </div>
         </header>

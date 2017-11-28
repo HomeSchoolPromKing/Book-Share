@@ -19,7 +19,7 @@
         <ul>
             <li><a href="index.php">Home</a></li>
             <li class="logged-out"><a href="login.php" class="active">Login</a></li>
-            <li id="sign-up" class="logged-out"><a href="#">Sign-Up</a></li>
+            <li id="sign-up" class="logged-out"><a href="signupform.php">Sign-Up</a></li>
             <li class="logged-in"><a href="account.php">My Profile</a></li>
             <li><a href="#">About</a></li>
         </ul>
@@ -34,7 +34,7 @@
             <ul id="menu">
                 <a href="index.php"><li>Home</li></a>
                 <a href="login.php"><li class="logged-out active">Login</li></a>
-                <a href="#"><li id="sign-up" class="logged-out">Sign-Up</li></a>
+                <a href="signupform.php"><li id="sign-up" class="logged-out">Sign-Up</li></a>
                 <a href="account.php"><li class="logged-in">My Profile</li></a>
                 <a href="#"><li>About</li></a>
             </ul>

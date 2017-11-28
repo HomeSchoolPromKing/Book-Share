@@ -18,8 +18,8 @@ $(function() {
 <header>
 	<div class="desktop-nav">
 		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li class="logged-out"><a href="login.html">Login</a></li>
+			<li><a href="index.php">Home</a></li>
+			<li class="logged-out"><a href="login.php">Login</a></li>
 			<li id="sign-up" class="logged-out"><a href="signupform.php">Sign-Up</a></li>
 			<li class="logged-in"><a href="profile.php" class="active">My Profile</a></li>
 			<li><a href="support.php">Support</a></li>

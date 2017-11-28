@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 Author: Jeremy Trantham
-Date: 11/18/17
+Date: 11/27/17
 
 TODO: redirect if not logged in
 -->
@@ -18,10 +18,11 @@ TODO: redirect if not logged in
                 display: none;
             }
         </style>
+        <link href="CSS/styles" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script>
             $(document).ready(function() {
-            $.getScript("global_search.js");
+            $.getScript("JS/global_search.js");
         });
         </script>
 
@@ -37,16 +38,16 @@ TODO: redirect if not logged in
         <div id="content"></div>
         
         <div id="options">
-            <form action="TODO.php">
+            <form id="listBook" action="TODO.php" method="post">
                 <fieldset>
                     <legend>
                         Condition:
                     </legend>
                     <label>
-                        <input type="radio" name="condition" value="new" />New
+                        <input type="radio" name="condition" value="new" />Like New
                     </label>
                     <label>
-                        <input type="radio" name="condition" value="fine" />Fine
+                        <input type="radio" name="condition" value="fine" required="required" checked="checked" />Fine
                     </label>
                     <label>
                         <input type="radio" name="condition" value="vg" />Very Good

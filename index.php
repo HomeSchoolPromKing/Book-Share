@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <link href="CSS/Styles.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
           
     </head>
 
@@ -94,17 +95,18 @@
 		
 		<main id="home-search">
             <div id="logo">
-                <img src="images/bookshare-logo.png" alt="Bookshare Logo" />
+                <img src="images/bookshare-logo.svg" alt="Bookshare Logo" />
             </div>
             <form action="results.php" method="get">
                 <div id="booksearch">
                     <input id="search" name="search" type="text" placeholder="Search by Title, Author, ISBN" required />
-                    <input id="submit" type="submit" value="Search" />
+					<button type="submit" id="search-submit">
+						<i class="material-icons">search</i>
+					</button>
                 </div>
             </form>
         </main>
-        
-        
+		
         <!--
         <div id="signup-wrapper">
             <div id="main">

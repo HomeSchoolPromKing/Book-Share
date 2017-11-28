@@ -49,8 +49,8 @@
             <li><a href="index.php">Home</a></li>
             <li class="logged-out"><a href="login.php">Login</a></li>
             <li id="sign-up" class="logged-out"><a href="#" class="active">Sign-Up</a></li>
-            <li class="logged-in"><a href="account.php">My Profile</a></li>
-            <li><a href="#">About</a></li>
+            <li class="logged-in"><a href="profile.php">My Profile</a></li>
+            <li><a href="support.php">Support</a></li>
         </ul>
     </nav>
         
@@ -64,8 +64,8 @@
                 <a href="index.php"><li>Home</li></a>
                 <a href="login.php"><li class="logged-out">Login</li></a>
                 <a href="#"><li id="sign-up" class="logged-out active">Sign-Up</li></a>
-                <a href="account.php"><li class="logged-in">My Profile</li></a>
-                <a href="#"><li>About</li></a>
+                <a href="profile.php"><li class="logged-in">My Profile</li></a>
+                <a href="support.php"><li>Support</li></a>
             </ul>
         </div>
     </nav>

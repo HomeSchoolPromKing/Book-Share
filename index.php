@@ -105,6 +105,7 @@
 					</button>
                 </div>
             </form>
+		<p>BookShare is website that connects people interested in exchanging used textbooks</p>
         </main>
 		
         <!--

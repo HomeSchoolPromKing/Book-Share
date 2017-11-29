@@ -4,22 +4,23 @@
  * Author: Brian Oleniacz
  * Date Created: 11/28/2017
  * 
- * returns all the information for a given user_ID
+ * returns all the information for a given 'owner'
  * 
  * Stores the results in the associative array $results.
  */
 
-require_once database.php;
+require_once database.php;  //returns a PDO database connection called $db
  
-$user_ID = filter_input(INPUT_POST, 'user_ID');
+//calling page must pass in POST array a variable called 'owner'
+$username = $_SESSION['valid_user'];
 
 try {
         
-        $query = "SELECT * FROM users"
-                . "WHERE user_id = :user_id;";
+        $query = "SELECT * FROM books"
+                . "WHERE username = :username;";
 
        $statement = $db->prepare($query);
-       $statement->bindValue(':user_id', $user_id);
+       $statement->bindValue(':username', $username);
        $statement->execute();
        $results = $statement->fetchAll();
        $statement->closeCursor();

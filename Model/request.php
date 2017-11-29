@@ -1,43 +1,21 @@
 <?php
-require_once('message.php');
-require_once 'Database.class.php';
+require_once 'Model/Database.class.php';
 
-$action = filter_input(INPUT_POST, 'action');
-if ($action === 'cancel') {
-    $action = 'cancel';
+$to_name; //TODO first name from db
+$to_email; //TODO email from db
+$message = filter_input(INPUT_POST, $message);
+$email_from; //TODO website email address
+$requester_email; //TODO email from db
+$subject = filter_input(INPUT_POST, $subject);
+
+$headers = "From: $email_from \r\n";
+$headers .= "Reply-To: $requester_email \r\n";
+if (mail($to_email, $subject, $message, $headers)) {
+    //TODO flat file log
+    include 'email_sent.php';
 } else {
-    $action = 'request';
+    // TODO error log?
+    include 'email_fail.php';
 }
 
-switch ($action) {
-    case 'cancel':
-        include index.php;
-        break;
-    
-    case 'request':
-        
-        // Set up email variables
-        $to_address = $email;
-        $to_name = $first_name;
-        $from_address = ''; //TODO
-        $from_name = ''; //TODO
-        $subject = ''; //TODO
-        $body = ''; //TODO
-        $is_body_html = false;
-        
-        // Send email
-        try {
-            send_email($to_address, $to_name, 
-                    $from_address, $from_name, 
-                    $subject, $body, $is_body_html);
-            // TODO: flat log
-            include 'mail_success.php';
-            
-        } catch (Exception $ex) {
-            $error = $ex->getMessage();
-            // TODO: Error log
-            include 'mail_fail.php';
-        }        
-        break;
-}
 ?>

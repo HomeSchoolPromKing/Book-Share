@@ -43,6 +43,16 @@
             unset($_SESSION['err_duplicate']);
         }
 		
+		// If the user is logged in, display logged in header
+        // NOTE: Alternatively, we can make one header file and control display inside of it
+        if(isset($_SESSION['valid_user'])) {
+            include 'header_loggedin.php'; 
+        }
+
+        // If the user is logged out, display logged out header
+        else {
+            include 'header_loggedout.php';
+        }
     ?>
 	
 	<div id="signup-wrapper">

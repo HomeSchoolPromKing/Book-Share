@@ -2,6 +2,7 @@
   Purpose: This file registers a user
   Author: Kat Farley
   Date: 11/20/2017
+  Last Updated: 11/29/2017
  -->
  
  
@@ -45,7 +46,7 @@ catch (Exception $ex) {
         }
 
         // Make sure passwords match 
-        else if ($memberpassword != $password_confirm) {
+        else if ($memberpassword !== $password_confirm) {
             // The passwords do not match
            // $err_message = "The passwords do not match. Please check your input.";
            // echo $err_message;

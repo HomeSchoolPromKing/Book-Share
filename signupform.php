@@ -14,7 +14,9 @@
     </head>
 
     
-    <body id="signup-body" style="visibility: hidden;" onload="js_Load()"> <!-- Fixes the weird split second flash of unstyled page - Forces everything hidden, then visible once all loaded -->
+    <body id="signup-body"> <!-- FRONT END: I removed this while debugging because it hides the display on my computer: style="visibility: hidden;" onload="js_Load()" - Please move back if needed (KaF 11/29)
+                            
+                            Front end's comment: "Fixes the weird split second flash of unstyled page - Forces everything hidden, then visible once all loaded" --> 
         
 	<?php 
   
@@ -23,23 +25,38 @@
             session_start();
         }
 
-        // Check for Boolean error flags - Front End/Chris, please feel free to reformat this/switch over to Javascript as needed
+        // initialize variables for holding error boolean
+        $err_username = false;
+        $err_password = false;
+        $err_email = false;
+        $err_duplicate = false;
+        
+        // Check for Boolean error flags - 
+        // Front End/Chris, I've moved these errors into Javascript variables below to make it easier for you all to work with these. Please feel free to adjust (KaF 11/29)
 
         if(isset($_SESSION['err_username'])) {
-            echo "Error detected in username input. ";
+            if (($_SESSION['err_username']) == true) {
+                $err_username = true;
+            }
             unset($_SESSION['err_username']);    // clear session data 
         }
         if(isset($_SESSION['err_password'])) {
-            echo "Error detected in password input. "; 
+            if (($_SESSION['err_password']) == true) {
+                $err_password = true; 
+            }
             unset($_SESSION['err_password']);
         }
         if(isset($_SESSION['err_email'])) {
-            echo "Error detected in email input. ";
+            if (($_SESSION['err_email']) == true) {
+                $err_email = true; 
+            }
             unset($_SESSION['err_email']);
         }
         
         if(isset($_SESSION['err_duplicate'])) {
-            echo "It looks like that email address or username is already registered. Please try again.";
+            if (($_SESSION['err_duplicate']) == true) {
+                $err_duplicate = true; 
+            }
             unset($_SESSION['err_duplicate']);
         }
 		
@@ -54,8 +71,35 @@
             include 'header_loggedout.php';
         }
     ?>
+        
+        <script type="text/javascript">
+            // pass error messages
+            var error_username = "<?php echo $err_username ?>"; 
+            var error_password = "<?php echo $err_password ?>"; 
+            var error_email = "<?php echo $err_email ?>"; 
+            var error_duplicate = "<?php echo $err_duplicate ?>"; 
+            
+            // Display alert messages for errors - Front End, feel free to reformat this in whatever way is user friendly
+            if (error_username == true) 
+            {
+                alert("error_username");
+            }
+            if (error_password == true) 
+            {
+                alert("error_password");
+            }
+            if (error_email == true) 
+            {
+                alert("error_email");
+            }
+            if (error_duplicate == true) 
+            {
+                alert("error_duplicate");
+            }
+
+        </script>
 	
-	<div id="signup-wrapper">
+	<<div id="signup-wrapper">
 		<div id="main">
 			<div id="signup-container">
 				<form id="signupForm" action="Model/signup.php" method="post">

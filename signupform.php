@@ -82,19 +82,19 @@
             // Display alert messages for errors - Front End, feel free to reformat this in whatever way is user friendly
             if (error_username == true) 
             {
-                alert("error_username");
+                alert("Error in username entry. Please type carefully and ensure there are no spaces.");
             }
             if (error_password == true) 
             {
-                alert("error_password");
+                alert("Error in password entry. Please include at least 1 capital letter and a digit and type carefully.");
             }
             if (error_email == true) 
             {
-                alert("error_email");
+                alert("Error in email entry. Please make sure this is a valid email address.");
             }
             if (error_duplicate == true) 
             {
-                alert("error_duplicate");
+                alert("We found a duplicate entry for either the username or the email. Please try again.");
             }
 
         </script>

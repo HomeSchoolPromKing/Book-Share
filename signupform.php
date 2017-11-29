@@ -22,6 +22,16 @@
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
+	    
+	// If the user is logged in, display logged in header
+        // NOTE: Alternatively, we can make one header file and control display inside of it
+        if(isset($_SESSION['valid_user'])) {
+            include 'header_loggedin.php'; 
+        }
+        // If the user is logged out, display logged out header
+        else {
+            include 'header_loggedout.php';
+        }
 
         // Check for Boolean error flags - Front End/Chris, please feel free to reformat this/switch over to Javascript as needed
 
@@ -44,7 +54,7 @@
         }
     ?>
 
-	<nav class="desktop-nav">
+	<!--<nav class="desktop-nav">
         <ul>
             <li><a href="index.php">Home</a></li>
             <li class="logged-out"><a href="login.php">Login</a></li>
@@ -69,7 +79,7 @@
             </ul>
         </div>
     </nav>
-
+-->
 	
 	<div id="signup-wrapper">
 		<div id="main">

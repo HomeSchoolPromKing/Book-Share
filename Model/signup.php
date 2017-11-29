@@ -63,6 +63,7 @@ catch (Exception $ex) {
         if ($memberemail == null || !filter_var($memberemail, FILTER_VALIDATE_EMAIL)) {
             // $err_message = "Invalid or missing email.";
             // echo $err_message;
+            return false;
         } 
 
         else {

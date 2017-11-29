@@ -1,0 +1,60 @@
+<?php 
+	// Controller 
+
+
+	//  ----------------------------------------------------------
+	// Handle the case where $action is not defined
+	//  ----------------------------------------------------------
+	$action = filter_input(INPUT_POST, 'action');
+	if ($action == NULL) {
+		$action = filter_input(INPUT_GET, 'action');
+		if $action == NULL) {
+			$action = 'list_view";
+		}
+	}
+         
+	
+	//  ----------------------------------------------------------
+	// Handle all actions that are global to all views
+	//  ----------------------------------------------------------
+
+        // Check if a session is open before trying to start
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        // If the user is logged in, display logged in header
+        // NOTE: Alternatively, we can make one header file and control display inside of it
+        if(isset($_SESSION['valid_user'])) {
+            include 'header_loggedin.php'; 
+        }
+
+        // If the user is logged out, display logged out header
+        else {
+            include 'header_loggedout.php';
+        }
+
+
+	
+	//  ----------------------------------------------------------
+	//  Switch on the $action variable.  Be carefull that the if/elseif/else structure
+	//   remains intact when editting this section.  Only one section should 'fire'
+	//  ----------------------------------------------------------
+
+ 	if ($action == 'list_view') {
+		include ('list_view.php')
+	}
+	elseif ($action == 'profile') {
+		include ('profile.php')
+	}
+	elseif ($action == 'delete') {
+		include ('list_view.php')
+	}
+	else  {
+		// Should never get here, but if we do go back to the list_view
+		include ('list_view.php')
+	}
+		
+        ?>
+        
+        

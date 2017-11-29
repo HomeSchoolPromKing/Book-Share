@@ -1,3 +1,7 @@
+* {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
 /* Support Page */
 /**********************************************/
 
@@ -12,7 +16,6 @@
 }
 
 #about {
-	font-family: Arial, Helvetica, Sans-Serif;
 	width: 75%;
 	margin: 0 auto;
 }
@@ -81,7 +84,6 @@ text-align: center;}
 #links {
 	padding-top: 1em;
 	text-align: center;
-	font-family: Arial, Helvetica, Sans-Serif;
 }
 
 #newListing {
@@ -220,7 +222,6 @@ text-align: center;}
 /*  General Styles  */
 
 #login-body {
-    font-family: Arial, Helvetica, sans-serif;
 	font-size: 100%;
 	color: #000000;
 	background-repeat: no-repeat;
@@ -237,6 +238,11 @@ text-align: center;}
 	color: #222222;
 	text-align: center;
     padding: 4em;
+}
+
+#login-container p {
+	text-align: center;
+	margin-top: -2em;
 }
 
 #loginForm img {
@@ -320,7 +326,6 @@ input#signUp {
 	-webkit-box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.8);
 	-moz-box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.8);
 	box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.8);
-	font-family: Verdana, sans-serif;
 	transition: all 0.2s;
 }
 
@@ -335,7 +340,6 @@ input#signUp {
 /*  General Styles  */
 
 #home-body {
-    font-family: Arial, Helvetica, sans-serif;
 	font-size: 100%;
 	color: #000000;
 	background-repeat: no-repeat;
@@ -347,7 +351,6 @@ input#signUp {
 main p  {
 	text-align: center;
 	font-size: 18px;
-	font-family: Arial, Helvetica, sans-serif;
 	width: 100%;
 	margin: 0 auto;
 	margin-top: 20px;
@@ -447,6 +450,17 @@ button#search-submit {
 button#search-submit i {
 	font-size: 2em;
 }
+
+#signup-body {
+	font-size: 100%;
+	color: #000000;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #222222;
+	overflow-x: hidden;
+}
+
 #search-submit:hover {
 	background-color: #000000;
 	cursor: pointer;
@@ -543,7 +557,6 @@ button#search-submit i {
 	-webkit-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.5);
 	-moz-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.5);
 	box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.5);
-	font-family: Verdana, sans-serif;
 	transition: all 0.2s;
 }
 
@@ -564,7 +577,6 @@ button#search-submit i {
 /**********************************************/
 
 #account-body {
-    font-family: Arial, Helvetica, sans-serif;
 	font-size: 100%;
 	color: #000000;
 	background-repeat: no-repeat;

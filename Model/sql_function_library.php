@@ -115,6 +115,31 @@ function incrmnt_requests($book_ID){
 } //end incrmnt_requests()
 
 
- //function add_listing($title, $author, $isbn_10, $isbn_13, $owner)
+ function add_listing($owner, $title, $author, $ISBN, $condition, $loan_type, $wants){
+     try {
 
+            $query = "INSERT INTO books (owner, title, author, ISBN, wants)"
+                    . "VALUES (owner = :owner,"
+                    . "title = :title,"
+                    . "author = :author, "
+                    . "ISBN = :ISBN"
+                    . "wants = :wants);";
+
+           $statement = $db->prepare($query);
+           $statement->bindValue(':owner', $owner);
+           $statement->bindValue(':title', $title);
+           $statement->bindValue(':author', $author);
+           $statement->bindValue(':isbn', $ISBN);
+           $statement->bindValue(':wants', $wants);
+           $statement->execute();
+           $statement->closeCursor();
+
+        } catch (PDOException $ex) {
+            $msg = $ex->getMessage();
+            echo "error: " . $msg;
+            exit();
+        }
+ }
+
+    
 ?>

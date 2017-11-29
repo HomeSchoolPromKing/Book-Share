@@ -3,25 +3,35 @@
 <html lang="en">
 
 	<head>
+	
 	<title>BookShare | Support</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
 	<link href="CSS/Styles.css" rel="stylesheet">
+	<script src="JS/stopFlash.js"></script>
+	
 	</head>
 	
-	<body>
+	<body style="visibility: hidden;" onload="js_Load()"> <!-- Fixes the weird split second flash of unstyled page - Forces everything hidden, then visible once all loaded -->
 	
-    <nav class="desktop-nav">
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li class="logged-out"><a href="login.php">Login</a></li>
-            <li id="sign-up" class="logged-out"><a href="signupform.php">Sign-Up</a></li>
-            <li class="logged-in"><a href="profile.php">My Profile</a></li>
-            <li><a href="support.php" class="active">Support</a></li>
-        </ul>
-    </nav>
-        
-   
+	<?php 
+         
+        // Check if a session is open before trying to start
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        // If the user is logged in, display logged in header
+        // NOTE: Alternatively, we can make one header file and control display inside of it
+        if(isset($_SESSION['valid_user'])) {
+            include 'header_loggedin.php'; 
+        }
+
+        // If the user is logged out, display logged out header
+        else {
+            include 'header_loggedout.php';
+        }
+    ?>
 	
 	<div id="about">
 		<h1>About</h1>

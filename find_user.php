@@ -11,16 +11,15 @@
 
 require_once database.php;  //returns a PDO database connection called $db
  
-//calling page must pass in POST array a variable called 'owner'
-$username = $_SESSION['valid_user'];
+$owner = filter_input(INPUT_POST, 'owner');
 
 try {
         
         $query = "SELECT * FROM books"
-                . "WHERE username = :username;";
+                . "WHERE owner = :owner;";
 
        $statement = $db->prepare($query);
-       $statement->bindValue(':username', $username);
+       $statement->bindValue(':owner', $owner);
        $statement->execute();
        $results = $statement->fetchAll();
        $statement->closeCursor();

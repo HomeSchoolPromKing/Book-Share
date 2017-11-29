@@ -15,7 +15,7 @@ $user_ID = filter_input(INPUT_POST, 'user_ID');
 
 try {
         
-        $query = "SELECT * FROM books"
+        $query = "SELECT * FROM users"
                 . "WHERE user_id = :user_id;";
 
        $statement = $db->prepare($query);

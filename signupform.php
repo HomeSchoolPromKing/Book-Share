@@ -14,23 +14,13 @@
     </head>
 
     
-    <body id="login-body" style="visibility: hidden;" onload="js_Load()"> <!-- Fixes the weird split second flash of unstyled page - Forces everything hidden, then visible once all loaded -->
+    <body id="signup-body" style="visibility: hidden;" onload="js_Load()"> <!-- Fixes the weird split second flash of unstyled page - Forces everything hidden, then visible once all loaded -->
         
 	<?php 
   
           // Check if a session is open before trying to start
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
-        }
-	    
-	// If the user is logged in, display logged in header
-        // NOTE: Alternatively, we can make one header file and control display inside of it
-        if(isset($_SESSION['valid_user'])) {
-            include 'header_loggedin.php'; 
-        }
-        // If the user is logged out, display logged out header
-        else {
-            include 'header_loggedout.php';
         }
 
         // Check for Boolean error flags - Front End/Chris, please feel free to reformat this/switch over to Javascript as needed
@@ -52,34 +42,18 @@
             echo "It looks like that email address or username is already registered. Please try again.";
             unset($_SESSION['err_duplicate']);
         }
-    ?>
+		
+		// If the user is logged in, display logged in header
+        // NOTE: Alternatively, we can make one header file and control display inside of it
+        if(isset($_SESSION['valid_user'])) {
+            include 'header_loggedin.php'; 
+        }
 
-	<!--<nav class="desktop-nav">
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li class="logged-out"><a href="login.php">Login</a></li>
-            <li id="sign-up" class="logged-out"><a href="#" class="active">Sign-Up</a></li>
-            <li class="logged-in"><a href="profile.php">My Profile</a></li>
-            <li><a href="support.php">Support</a></li>
-        </ul>
-    </nav>
-        
-    <nav class="mobile-nav">
-        <div id="menuToggle">
-            <input type="checkbox" />
-            <span></span>
-            <span></span>
-            <span></span>
-            <ul id="menu">
-                <a href="index.php"><li>Home</li></a>
-                <a href="login.php"><li class="logged-out">Login</li></a>
-                <a href="#"><li id="sign-up" class="logged-out active">Sign-Up</li></a>
-                <a href="profile.php"><li class="logged-in">My Profile</li></a>
-                <a href="support.php"><li>Support</li></a>
-            </ul>
-        </div>
-    </nav>
--->
+        // If the user is logged out, display logged out header
+        else {
+            include 'header_loggedout.php';
+        }
+    ?>
 	
 	<div id="signup-wrapper">
 		<div id="main">

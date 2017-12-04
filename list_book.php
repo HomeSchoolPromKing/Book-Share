@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <!--
 Author: Jeremy Trantham
-Date: 11/27/17
+Date: 12/3/17
 
-TODO: redirect if not logged in
 -->
 
 
@@ -13,10 +12,12 @@ TODO: redirect if not logged in
         <title>List A Book</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
-        <style>
-            
-        </style>
         <link href="CSS/styles" rel="stylesheet">
+        <style>
+            #options {
+                display: none;
+            }
+        </style>
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script>
             $(document).ready(function() {
@@ -33,7 +34,9 @@ TODO: redirect if not logged in
             <button onclick="lookup()" type="submit">Search ISBN</button>
         </div>
         
-        <div id="content"></div>
+        <ul>
+            <div id="content"></div>
+        </ul>
         
         <div id="options">
             <form id="listBook" action="TODO.php" method="post">
@@ -42,22 +45,22 @@ TODO: redirect if not logged in
                         Condition:
                     </legend>
                     <label>
-                        <input type="radio" name="condition" value="new" />Like New
+                        <input type="radio" name="condition" value="New" required />Like New
                     </label>
                     <label>
-                        <input type="radio" name="condition" value="fine" required="required" checked="checked" />Fine
+                        <input type="radio" name="condition" value="Fine" required />Fine
                     </label>
                     <label>
-                        <input type="radio" name="condition" value="vg" />Very Good
+                        <input type="radio" name="condition" value="Very Good" required />Very Good
                     </label>
                     <label>
-                        <input type="radio" name="condition" value="good" />Good
+                        <input type="radio" name="condition" value="Good" required />Good
                     </label>
                     <label>
-                        <input type="radio" name="condition" value="fair" />Fair
+                        <input type="radio" name="condition" value="Fair" required />Fair
                     </label>
                     <label>
-                        <input type="radio" name="condition" value="poor" />Poor
+                        <input type="radio" name="condition" value="Poor" required />Poor
                     </label>
                 </fieldset>
                 <br />
@@ -66,22 +69,27 @@ TODO: redirect if not logged in
                         Loan Type:
                     </legend>
                     <label>
-                        <input type="checkbox" name="loan_type" value="free" />Free
+                        <input type="checkbox" name="loan_type" value="Free" />Free
                     </label>
                     <label>
-                        <input type="checkbox" name="loan_type" value="loan" />Loan
+                        <input type="checkbox" name="loan_type" value="Loan" />Loan
                     </label>
                     <label>
-                        <input type="checkbox" name="loan_type" value="barter" />Barter
+                        <input type="checkbox" name="loan_type" value="Trade" />Barter
                     </label>
                     <label>
-                        <input type="checkbox" name="loan_type" value="sell" />Sell
+                        <input type="checkbox" name="loan_type" value="Sell" />Sell
                     </label>
                     <label>
-                        <input type="checkbox" name="loan_type" value="other" />Other
+                        <input type="checkbox" name="loan_type" value="Other" />Other
                     </label>
+                    <div id="checked"></div>
                 </fieldset><br />
-                <button type="submit">List This Book</button>
+                <label>
+                    Notes:
+                    <textarea id="notes" name="notes" rows="4" maxlength ="255"
+                              placeholder="i.e. What you want to trade in return"></textarea>
+                <button type="submit" id="list">List This Book</button>
             </form>
         </div>
         

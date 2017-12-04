@@ -4,25 +4,72 @@ Purpose: searches Google Books based on user input in search field
 allows user to add a result to the available database
 Date: 11/27/2017
 
-TODO: form validation, 
+
 */
 
-//global object for the book
+// global object for the book
 var book = {
-    isbn: 0,
+    isbn10: null,
+    isbn13: null,
     title: "",
     authors: [],
     imgLink: "",
     condition:"",
-    loan_type: ""
+    loan_type: [],
+    wants: ""
 };
 
 //global array for returned books
 var bookList = new Array;
 
-// event listener to prevent form submission to server before validation
-$('#listBook').on('submit', function(e) {
-    e.preventDefault();    
+// event listener to prevent form submission to server before validation, and 
+// send ajax request to the server with the selected book information
+$("#listBook").on("submit", function(e) {
+    e.preventDefault();
+    
+    //validate that at least one checkbox is selected
+    checked = $("input[type=checkbox]:checked").length;
+
+    if(!checked) {
+        $("#checked").html("Please check at least one type of loan type.");
+    }
+    else {
+        
+        // add book condition to the book object
+        book.condition = $('input[name=condition]:checked').val();
+        
+        //clear any old array info before storing loan_type
+        book.loan_type = [];
+        $.each($("input[name=loan_type]:checked"), function(){            
+                    book.loan_type.push($(this).val());
+                });
+                
+        // grab user input from the notes/wants field
+        book.wants = $('#notes').val();
+        
+        // send ajax json to add_listing.php
+        $.ajax({
+            url: "../Model/add_listing.php",
+            type: "POST",
+            data: {data: JSON.stringify(book)}
+            }).done(function(e) {
+                if (e.is_error === true) {
+                    $('#options').hide();
+                    var errorMsg = "Something went wrong, book is not listed. Error: ";
+                    errorMsg += e.errorMsg;
+                    var tryAgain = "<a href='list_book.php'>Try Again</a>";
+                    var cancel = "<a href='index.php'>Home</a>";
+                    $('#content').html(errorMsg + "<br>" + tryAgain + cancel);
+                }
+                else {
+                    $('#options').hide();
+                    var addAnother = "<a href='list_book.php'>Add Another</a>";
+                    var home = "<a href='index.php'>Home</a>";
+                    $('#content').html("Your book has been added.<br>" + addAnother + "<br>" + home);
+             
+                }
+            });
+    }
 });
 
 function addListing(book) {
@@ -60,6 +107,7 @@ function lookup(){
         // Clear old results, if any
         $("#content").html("");
         
+        
         // Hide options
         $("#options").hide();
         
@@ -68,12 +116,31 @@ function lookup(){
         // Loop through all the items one-by-one
         for (var i = 0; i < response.items.length; i++) {
 
-            // set the item and create the book
+            // grab each item returned, and use the info to create the book
             var item = response.items[i].volumeInfo;
             book.title = item.title;
             book.authors = item.authors;
-            book.isbn = $("#isbnSearch").val().replace(/\-/g, '');
             book.imgLink = item.imageLinks.smallThumbnail;
+            industryId = item.industryIdentifiers;
+            for (var j=0; j<industryId.length; j++) {
+                if (industryId[j].type === "ISBN_10") {
+                    book.isbn10 = industryId[j].identifier;
+                }
+                else if (industryId[j].type === "ISBN_13") {
+                    book.isbn13 = industryId[j].identifier;
+                }
+            }
+            
+            //verify return of ISBN information, if not, set to query
+            if (book.isbn10 === null && book.isbn13 === null) {
+                isbn = q.slice(5);
+                if (isbn.length === 10) {
+                    book.isbn10 = isbn;
+                }
+                else {
+                    book.isbn13 = isbn;
+                }
+            }
             
             bookList.push(book);
             
@@ -83,7 +150,8 @@ function lookup(){
             var eId = "#bookSelection" + i;
             $("#content").on("click", eId, function(e) {
                 bookId = eId.replace(/\D/g,'');
-                $("#content").html(addListing(bookList[bookId]));
+                book = bookList[bookId];
+                $("#content").html(addListing(book));
                 $("#options").show();
             });
             

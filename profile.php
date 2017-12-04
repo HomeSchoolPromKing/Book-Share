@@ -28,21 +28,17 @@ $(function() {
 </header>
 <body>
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "test";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+ $user = 'root';
+ $pass = 'root';
+ $db = new PDO( 'mysql:host=localhost;dbname=bookshare', $user, $pass );
+ $sql = "SELECT * FROM books";
+ $query = $db->prepare( $sql );
+ $query->execute();
+ $results = $query->fetchAll( PDO::FETCH_ASSOC );
 ?>
 <!-- User Info -->
 <div id="user">
-	<h2><?php echo $username; ?>'s Profile</h2><br />
+	<h2>My Profile</h2><br />
 </div>
 <!-- Logo -->
 <img src="images/bookshare-logo.png" id="profileLogo" alt="BookShare Logo">
@@ -54,41 +50,47 @@ if ($conn->connect_error) {
 	<!-- Active Listings Toggle -->
 	<a id="toggle" href="#">Active Listings</a>
 	<div id="active">
-		<?php
-		$sql = "SELECT * FROM books";
-			if($result = mysqli_query($conn, $sql)){
-				if(mysqli_num_rows($result) > 0){
-					echo '<table class="my_table" border=1>';
-						echo "<tr>";
-							echo "<th>ID</th>";
-							echo "<th>ISBN</th>";
-							echo "<th>Title</th>";
-							echo "<th>Author</th>";
-							echo "<th></th>";
-						echo "</tr>";
-			while($row = mysqli_fetch_array($result)){
-						echo "<tr>";
-							echo "<td>" . $row['id'] . "</td>";
-							echo "<td>" . $row['ISBN'] . "</td>";
-							echo "<td>" . $row['Title'] . "</td>";
-							echo "<td>" . $row['Author'] . "</td>";
-							echo "<td><a href=\"Model\delete.php?id=".$row['id']."\">Delete</a></td>";
-						echo "</tr>";
-        }
-					echo '</table>';
-		} 	
-		else {
-			echo "You do not have any active listings.";
-		}
-		} else {
-			echo "Could not execute $sql. " . mysqli_error($conn);
-}
- 
-		// Close connection
-		mysqli_close($conn);
+<?php
+        if ($results){
+        
+            echo "<table class='my_table'>" ;
+            echo "<tr>"
+					. "<th>book_id</th>"
+                    . "<th>Owner</th>"
+                    . "<th>Title</th>"
+                    . "<th>Author</th>"
+                    . "<th>ISBN-10</th>"
+                    . "<th>ISBN-13</th>"
+                    . "<th>Wants</th>"
+                    . "<th></th>"
+              . "</tr>";
 
-		?>
+	
+            foreach($results as $row){
+
+   echo "<tbody class='my_table'>";
+		echo "<tr>";
+			echo "<td>" . $row['id'] . "</td>";
+			echo "<td>" . $row['owner'] . "</td>";
+			echo "<td>" . $row['title'] . "</td>";
+			echo "<td>" . $row['author'] . "</td>";
+			echo "<td>" . $row['ISBN-10'] . "</td>";
+			echo "<td>" . $row['ISBN-13'] . "</td>";
+			echo "<td>" . $row['wants'] . "</td>";
+			echo "<td><a href=\"Model\delete.php?id=".$row['book_id']."\">Delete</a></td>";
+		echo "</tr>";
+	echo "</tbody>";    
+}
+echo "</table>";
+        } else {
+            echo "<br><br>No active listings.";
+        }
+        ?>
+
+
 	</div>
 </div>
+
+
 </body>
 </html>

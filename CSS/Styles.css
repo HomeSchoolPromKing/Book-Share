@@ -662,43 +662,149 @@ button#search-submit i {
 /**********************************************/
 
 /* Main Content */
+#results-body {
+	font-size: 100%;
+	color: #000000;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: #FFFFFF;
+	overflow-x: hidden;
+	margin-top: 3em;
+}
+
 .container {
 	width: 90%;
-	margin: 3em auto;
+	margin: auto;
 	padding: 1em;
-}
-
-.container-left {
-	display: inline-block;
-	width: 15%;
-	margin: 2em 0 2em 0;
-	text-align: left;
-    border-right: 1px solid #a1a1a1;
-}
-
-.container-left p, h3, h4 {
-	margin: 0;
 }
 
 #sort-condition {
 	margin-bottom: 1em;
 }
 
-.container-right {
-	vertical-align: top;
-	display: inline-block;
-	width: 75%;
-	padding: 1em;
-}
-
 /* Table */
-table {
+#results-body table {
 	width: 100%;
 	table-layout: fixed;
-	border-collapse: separate;
+	border-collapse: collapse;
+	border-spacing: 0;
 	text-align: left;
 }
 
+#results-body table th {
+	background-color: #106caf;
+	color: white;
+	padding: .5em;
+}
+
+#results-body tr {
+	border: 1px solid #E0E0E0;
+}
+
+#results-body td {
+	padding: .5em;
+}
+
+#title-th {
+	width: 20em;
+}
+
+#isbn13-th {
+	width: 10em;
+}
+
+#contact-th {
+	text-align: center;
+	width: 5em;
+}
+
+.contact-td {
+	text-align: center;
+}
+
+/*  List Book Page  */
+/**********************************************/
+
+/* Main Content */
+#listBook-body {
+	text-align: center;
+	width: 90%;
+	margin: 5em auto 0 auto;
+	font-size: 100%;
+	color: #000000;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: #FFFFFF;
+	overflow-x: hidden;
+}
+
+#ul {
+	-webkit-padding-start: 0;
+	padding-left: -20px;
+}
+
+form#listBook {
+	width: 60%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+ #isbnSearch-div {
+	display: block;
+} 
+
+.button {
+	display: inline-block;
+	font-size: 16px;
+	background-color: #106CAF;
+	padding: .4em;
+	border: none;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+    border-radius: 5px;
+	color: #FFFFFF;
+}
+
+.button:hover {
+	cursor: pointer;
+	background-color: black;
+}
+
+#isbnSearch {
+	display: inline-block;
+	font-size: 16px;
+	padding: .4em;
+	margin: 0 .25em 0 .25em;
+    border: 1px solid #E0E0E0;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#title, #author {
+	list-style-type: none;
+}
+
+#content:empty {
+	border: none;
+}
+
+#content {
+	text-align: center;
+	margin: 0 auto;
+	width: 30%;
+	border: 1px solid #E0E0E0;
+	padding: 1em;
+}
+
+#list-img {
+	margin: 1em 0 2em 0;
+	border: 1px solid #E0E0E0;
+}
+
+fieldset {
+	border: none;
+}
 
 /*  Mobile Styles  */
 /**********************************************/
@@ -743,6 +849,12 @@ table {
     #account-data th {
         display: block;
     }
+	
+	/* Results Page */
+	#results-body table {
+		overflow-x: auto;
+		display: block;
+	}
 }
 
 @media only screen and (max-width: 480px) {
@@ -765,4 +877,10 @@ table {
     #loginForm label, #signupForm label {
         font-size: 85%;
     }
+	
+	/* Results Page */
+	#results-body table {
+		overflow-x: auto;
+		clear: both;
+	}
 }

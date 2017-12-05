@@ -18,11 +18,11 @@
         <header>
             <div class="desktop-nav">
                 <ul>
-                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li class="logged-in"><a href="Model/logout.php">Logout</a></li>
-                    <li class="logged-in"><a href="#">My Profile</a></li>
+                    <li class="logged-in"><a href="profile.php">My Profile</a></li>
                     <li><a href="support.php">Support</a></li>
-                    <li><a href="profile.php">Make a Listing</a></li>
+					<li><a href="profile.php">Make a Listing</a></li>
                 </ul>
             </div>
         </header>
@@ -38,7 +38,7 @@
                     <a href="logout.php"><li class="logged-in">Logout</li></a>
                     <a href="profile.php"><li class="logged-in">My Profile</li></a>
                     <a href="support.php"><li>Support</li></a>
-                    <li><a href="profile.php">Make a Listing</a></li>
+					<li><a href="profile.php">Make a Listing</a></li>
                 </ul>
             </div>
         </nav>

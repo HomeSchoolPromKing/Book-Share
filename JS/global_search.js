@@ -73,9 +73,9 @@ $("#listBook").on("submit", function(e) {
 });
 
 function addListing(book) {
-    return "<img src=" + book.imgLink + " alt='Book Cover' />" + 
-            "<li id='title'>Title:&nbsp" + book.title + "</li>" +
-            "<li id='author'>Author(s):&nbsp" + book.authors + "</li><br />";
+    return "<img id='list-img' src=" + book.imgLink + " alt='Book Cover' />" + 
+            "<li id='title'><strong>Title:&nbsp</strong>" + book.title + "</li>" +
+            "<li id='author'><strong>Author(s):&nbsp</strong>" + book.authors + "</li><br />";
 }
 
 // creates a submit button with the id of "bookSelection0" where n = 0
@@ -83,7 +83,7 @@ function buttonCreate(n) {
     
     // set button id and add button
     var buttonID = "bookSelection" + n;
-    var output = "<button type='submit' id='" + buttonID + 
+    var output = "<button class='button' type='submit' id='" + buttonID + 
             "'>List This Book</button><br />";
     return output;
 };

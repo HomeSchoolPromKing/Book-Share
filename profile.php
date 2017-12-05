@@ -57,17 +57,12 @@ th {
         }
     ?>
 <?php
- $user = 'root';
- $pass = '';
- $db = new PDO( 'mysql:host=localhost;dbname=bookshare', $user, $pass );
- $sql = "SELECT * FROM books";
- $query = $db->prepare( $sql );
- $query->execute();
- $results = $query->fetchAll( PDO::FETCH_ASSOC );
+    require_once 'Model/database.php';
+    include 'Model/get_user_books.php';
 ?>
 <!-- User Info -->
 <div id="user">
-	<h2>My Profile</h2><br />
+	<h2><?php echo $_SESSION['valid_user'] ?>'s Profile</h2><br />
 </div>
 <!-- Logo -->
 <img src="images/bookshare-logo.png" id="profileLogo" alt="BookShare Logo">

@@ -32,3 +32,4 @@ try {
         echo "error: " . $msg;
         exit();
     }
+?>

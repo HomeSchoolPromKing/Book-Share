@@ -62,7 +62,7 @@ try {
         try {
 
             $query = "DELETE FROM books"
-                    . "WHERE book_ID = :book_ID ;";
+                    . " WHERE book_ID = :book_ID ;";
 
            $statement = $db->prepare($query);
            $statement->bindValue(':book_ID', $book_ID);

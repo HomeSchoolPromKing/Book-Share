@@ -16,7 +16,7 @@ $owner = filter_input(INPUT_POST, 'owner');
 try {
 
         $query = "DELETE FROM books"
-                . "WHERE owner=:owner ;";
+                . " WHERE owner=:owner ;";
 
        $statement = $db->prepare($query);
        $statement->bindValue(':owner', $owner);

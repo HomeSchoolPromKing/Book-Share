@@ -13,7 +13,7 @@ try {
         $date = "insert date here";
 
         $query = "DELETE FROM books"
-                . "WHERE date=:date ";
+                . " WHERE date=:date ";
 
        $statement = $db->prepare($query);
        $statement->bindValue(':date', $date);

@@ -17,7 +17,7 @@ $book_ID = filter_input(INPUT_POST, 'book_ID');
 try {
 
         $query = "SELECT `owner` FROM books"
-                . "WHERE book_id = :book_id;";
+                . " WHERE book_id = :book_id;";
 
        $statement = $db->prepare($query);
        $statement->bindValue(':book_id', $book_id);

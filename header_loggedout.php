@@ -20,6 +20,7 @@
 				<li class="logged-out"><a href="login.php">Login</a></li>
 				<li class="logged-out"><a href="signupform.php">Sign-Up</a></li>
 				<li><a href="support.php">Support</a></li>
+				<li><a href="profile.php">Make a Listing</a></li>
 			</ul>
 		</nav>
     
@@ -34,6 +35,7 @@
                     <a href="login.php"><li class="logged-out">Login</li></a>
                     <a href="signupform.php"><li id="sign-up" class="logged-out">Sign-Up</li></a>
                     <a href="support.php"><li>Support</li></a>
+		    <li><a href="profile.php">Make a Listing</a></li>
                 </ul>
             </div>
         </nav>

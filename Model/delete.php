@@ -18,7 +18,6 @@ $update->close();
 require_once 'database.php';
 
 $book_ID = filter_input(INPUT_GET, 'id');
-echo "book id is $book_ID";
 
 try {
 
@@ -35,5 +34,6 @@ try {
         exit();
     }
 
-// header("Location: ../profile.php");
-    ?>
+header("Location: ../profile.php");
+
+?>

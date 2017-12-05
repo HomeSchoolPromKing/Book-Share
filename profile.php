@@ -13,49 +13,23 @@ $(function() {
     });
 });
 </script>
-<style>
-table, td ,tr, th {
-	border: 1px solid black;
-}
-
-table {
-	margin-top: 50px;
-}
-
-td {
-	max-width: 150px;
-	word-wrap: break-word;
-	text-align: center;
-}
-
-th {
-	text-align: center;
-}
-</style>
 </head>
 <body>
-<?php 
-         
-        // Check if a session is open before trying to start
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
-        // If the user is logged in, display logged in header
-        // NOTE: Alternatively, we can make one header file and control display inside of it
-        if(isset($_SESSION['valid_user'])) {
-            include 'header_loggedin.php'; 
-        }
-        // If the user is logged out, display logged out header
-        else {
-            include 'header_loggedout.php';
-        }
-        ?>
-
-
-
+<header>
+	<div class="desktop-nav">
+		<ul>
+			<li><a href="index.php">Home</a></li>
+			<li class="logged-out"><a href="login.php">Login</a></li>
+			<li id="sign-up" class="logged-out"><a href="signupform.php">Sign-Up</a></li>
+			<li class="logged-in"><a href="profile.php" class="active">My Profile</a></li>
+			<li><a href="support.php">Support</a></li>
+		</ul>
+	</div>
+</header>
+<body>
 <?php
  $user = 'root';
- $pass = 'root';
+ $pass = '';
  $db = new PDO( 'mysql:host=localhost;dbname=bookshare', $user, $pass );
  $sql = "SELECT * FROM books";
  $query = $db->prepare( $sql );
@@ -78,8 +52,8 @@ th {
 	<div id="active">
 <?php
         if ($results){
-        
-            echo "<table>" ;
+
+            echo "<table class='my_table'>" ;
             echo "<tr>"
 					. "<th>book_id</th>"
                     . "<th>Owner</th>"
@@ -91,21 +65,21 @@ th {
                     . "<th></th>"
               . "</tr>";
 
-	
-            foreach($results as $result){
 
-  
+            foreach($results as $row){
+
+   echo "<tbody class='my_table'>";
 		echo "<tr>";
-			echo "<td>" . $result['id'] . "</td>";
-			echo "<td>" . $result['owner'] . "</td>";
-			echo "<td>" . $result['title'] . "</td>";
-			echo "<td>" . $result['author'] . "</td>";
-			echo "<td>" . $result['ISBN-10'] . "</td>";
-			echo "<td>" . $result['ISBN-13'] . "</td>";
-			echo "<td>" . $result['wants'] . "</td>";
-			echo "<td><a href=\"Model\delete.php?id=".$result['book_id']."\">Delete</a></td>";
+			echo "<td>" . $row['book_ID'] . "</td>";
+			echo "<td>" . $row['owner'] . "</td>";
+			echo "<td>" . $row['title'] . "</td>";
+			echo "<td>" . $row['author'] . "</td>";
+			echo "<td>" . $row['ISBN-10'] . "</td>";
+			echo "<td>" . $row['ISBN-13'] . "</td>";
+			echo "<td>" . $row['wants'] . "</td>";
+			echo "<td><a href=\"Model\delete.php?id=".$row['book_ID']."\">Delete</a></td>";
 		echo "</tr>";
-	    
+	echo "</tbody>";
 }
 echo "</table>";
         } else {

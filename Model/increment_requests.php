@@ -20,7 +20,7 @@ $book_ID = filter_input(INPUT_POST, 'book_ID');
 try {
         //get the current number of requests
         $query = "SELECT requests FROM BOOKS"
-                . "WHERE book_ID = :book_ID ;";
+                . " WHERE book_ID = :book_ID ;";
 
        $statement = $db->prepare($query);
        $statement->bindValue(':book_ID', $book_ID);

@@ -18,10 +18,10 @@ $book_ID = filter_input(INPUT_POST, 'book_ID');
 try {
 
         $query = "SELECT `user_id` FROM books"
-                . " WHERE book_id = :book_id;";
+                . " WHERE book_ID = :book_ID;";
 
        $statement = $db->prepare($query);
-       $statement->bindValue(':book_id', $book_id);
+       $statement->bindValue(':book_ID', $book_ID);
        $statement->execute();
        $user_ID = $statement->fetchColumn();
        $statement->closeCursor();

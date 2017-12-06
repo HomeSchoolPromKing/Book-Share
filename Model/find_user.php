@@ -17,7 +17,7 @@ $username = $_SESSION['valid_user'];
 try {
 
         $query = "SELECT * FROM books"
-                . "WHERE username = :username;";
+                . "WHERE owner = :username;";
 
        $statement = $db->prepare($query);
        $statement->bindValue(':username', $username);

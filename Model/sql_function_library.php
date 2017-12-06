@@ -8,8 +8,40 @@
 
 require_once 'database.php';
 
+function add_listing($owner, $title, $author, $ISBN, $condition, $loan_type, $wants){
+
+    global $db;
+
+     try {
+
+            $query = "INSERT INTO books (owner, title, author, ISBN, wants) "
+                    . "VALUES (owner = :owner, "
+                    . "title = :title, "
+                    . "author = :author, "
+                    . "ISBN = :ISBN, "
+                    . "wants = :wants);";
+
+           $statement = $db->prepare($query);
+           $statement->bindValue(':owner', $owner);
+           $statement->bindValue(':title', $title);
+           $statement->bindValue(':author', $author);
+           $statement->bindValue(':isbn', $ISBN);
+           $statement->bindValue(':wants', $wants);
+           $statement->execute();
+           $statement->closeCursor();
+
+        } catch (PDOException $ex) {
+            $msg = $ex->getMessage();
+            echo "error: " . $msg;
+            exit();
+        }
+ }
+
 /* Delete scrips */
 function del_all_old_listings(){
+
+    global $db;
+
     try {
 
         //update with new information
@@ -32,11 +64,16 @@ function del_all_old_listings(){
 } //end del_all_old_listings
 
 
+
+
 function del_all_owner_listings($owner){
+
+    global $db;
+
     try {
 
         $query = "DELETE FROM books"
-                . "WHERE owner=:owner ;";
+                . " WHERE owner=:owner ;";
 
        $statement = $db->prepare($query);
        $statement->bindValue(':owner', $owner);
@@ -51,15 +88,74 @@ function del_all_owner_listings($owner){
 } //end del_all_owner_listings
 
 
-/*
- * Increments the 'requests' field by one and returns the updated
- * 'requests' field.
- */
-function incrmnt_requests($book_ID){
+
+ /*
+  * returns $email of a given $username
+  */
+ function get_email($username){
+
+    global $db;
+
+    try {
+
+           $query = "SELECT `email` FROM user"
+                   . " WHERE username = :username;"; //user_id is lowercase in db
+
+          $statement = $db->prepare($query);
+          $statement->bindValue(':username', $username);
+          $statement->execute();
+          $email = $statement->fetchColumn();
+          $statement->closeCursor();
+          return $email;
+
+       } catch (PDOException $ex) {
+           $msg = $ex->getMessage();
+           echo "error: " . $msg;
+           exit();
+       }
+    }
+
+    /*
+     * requires $book_ID as parameter.
+     * returns $owner
+     */
+    function get_owner($book_ID){
+
+        global $db;
+
+        try {
+
+        $query = "SELECT `owner` FROM books"
+                . " WHERE book_ID = :book_ID;";
+
+       $statement = $db->prepare($query);
+       $statement->bindValue(':book_ID', $book_ID);
+       $statement->execute();
+       $owner = $statement->fetchColumn();
+       $statement->closeCursor();
+       return $owner;
+
+        } catch (PDOException $ex) {
+            $msg = $ex->getMessage();
+            echo "error: " . $msg;
+            exit();
+        }
+    }  //end get_owner()
+
+
+
+    /*
+    * Increments the 'requests' field by one and returns the updated
+    * 'requests' field.
+    */
+    function increment_requests($book_ID){
+
+    global $db;
+
     try {
         //get the current number of requests
-        $query = "SELECT requests FROM BOOKS"
-                . "WHERE book_ID = :book_ID ;";
+        $query = "SELECT requests FROM books"
+                . " WHERE book_ID = :book_ID ;";
 
        $statement = $db->prepare($query);
        $statement->bindValue(':book_ID', $book_ID);
@@ -99,7 +195,7 @@ function incrmnt_requests($book_ID){
         try {
 
             $query = "DELETE FROM books"
-                    . "WHERE book_ID = :book_ID ;";
+                    . " WHERE book_ID = :book_ID ;";
 
            $statement = $db->prepare($query);
            $statement->bindValue(':book_ID', $book_ID);
@@ -112,34 +208,6 @@ function incrmnt_requests($book_ID){
             exit();
         }
     } //end else
-} //end incrmnt_requests()
-
-
- function add_listing($owner, $title, $author, $ISBN, $condition, $loan_type, $wants){
-     try {
-
-            $query = "INSERT INTO books (owner, title, author, ISBN, wants)"
-                    . "VALUES (owner = :owner,"
-                    . "title = :title,"
-                    . "author = :author, "
-                    . "ISBN = :ISBN"
-                    . "wants = :wants);";
-
-           $statement = $db->prepare($query);
-           $statement->bindValue(':owner', $owner);
-           $statement->bindValue(':title', $title);
-           $statement->bindValue(':author', $author);
-           $statement->bindValue(':isbn', $ISBN);
-           $statement->bindValue(':wants', $wants);
-           $statement->execute();
-           $statement->closeCursor();
-
-        } catch (PDOException $ex) {
-            $msg = $ex->getMessage();
-            echo "error: " . $msg;
-            exit();
-        }
- }
-
+} //end increment_requests()
 
 ?>

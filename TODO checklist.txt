@@ -1,0 +1,15 @@
+add_listing to work
+email functionality
+update database to reflect project specs
+update code to match updated database
+put credential information for database in hidden folder
+hash for passwords? not high priority
+where log files?
+
+js validation this name is taken
+confirm email address with swift mailer
+if not confirmed, views for unconfirmed email
+put boolean "email confirmed" flag in SESSION ID
+
+delete database.php from View folder (main folder right now) and change code to look for it in the Model folder
+

@@ -1,0 +1,40 @@
+<% include partials/header %>
+
+  <title>BookShare | My Profile</title>
+  <script>
+    $(function() {
+        $( "#toggle" ).click(function() {
+            $( "#active" ).toggle();
+        });
+    });
+    </script>
+  <style>
+    table, td ,tr, th {
+    	border: 1px solid black;
+    }
+
+    table {
+    	margin: 0 auto;
+    }
+
+    td {
+    	max-width: 150px;
+    	word-wrap: break-word;
+    	text-align: center;
+    }
+
+    th {
+    	text-align: center;
+    }
+    #active {
+    	margin-top: 50px;
+    }
+  </style>
+</head>
+
+<% include partials/nav %>
+
+<h2>TODO</h2>
+<p>TODO</p>
+
+<% include partials/footer %>

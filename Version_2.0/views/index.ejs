@@ -1,0 +1,27 @@
+<% include partials/header %>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>BookShare | Home</title>
+</head>
+
+<% include partials/nav %>
+
+<main id="home-search">
+
+  <div id="logo">
+      <img src="images/bookshare-logo.svg" alt="Bookshare Logo" />
+  </div>
+
+  <form action="results.php" method="get">
+      <div id="booksearch">
+          <input id="search" name="search" type="text" placeholder="Search by Title, Author, ISBN" required />
+          <button type="submit" id="search-submit">
+            <i class="material-icons">search</i>
+          </button>
+      </div>
+  </form>
+
+  <p>BookShare is website that connects people interested in exchanging used textbooks</p>
+</main>
+
+<% include partials/footer %>

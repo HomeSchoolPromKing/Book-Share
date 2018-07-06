@@ -7,7 +7,8 @@ var express           = require('express'),
     User              = require('./models/user'),
     flash             = require('connect-flash');
 
-var indexRoutes = require('./routes/index');
+var indexRoutes = require('./routes/index'),
+    bookRoutes  = require('./routes/books');
 
 mongoose.connect('mongodb://localhost:27017');
 
@@ -33,6 +34,7 @@ app.use(function(req, res, next){
 });
 
 app.use(indexRoutes);
+app.use('/books', bookRoutes);
 
 app.listen(3000, function(){
   console.log('BookShare is listening on port 3000');

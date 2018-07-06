@@ -45,6 +45,14 @@ var express       = require('express');
         res.render('profile.ejs');
       });
 
+/* ==========================================
+============== SUPPORT ROUTE ==================
+===========================================*/
+
+      router.get('/support', function(req, res) {
+        res.render('support.ejs');
+      });
+
       function isLoggedIn(req, res, next){
           if (req.isAuthenticated()) {
             return next();

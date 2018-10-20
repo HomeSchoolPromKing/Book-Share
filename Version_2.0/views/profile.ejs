@@ -2,12 +2,12 @@
 
   <title>BookShare | My Profile</title>
   <script>
-    $(function() {
-        $( "#toggle" ).click(function() {
-            $( "#active" ).toggle();
-        });
-    });
-    </script>
+  $(function() {
+      $( "#toggle" ).click(function() {
+          $( "#active" ).toggle();
+      });
+  });
+  </script>
   <style>
     table, td ,tr, th {
     	border: 1px solid black;
@@ -34,7 +34,19 @@
 
 <% include partials/nav %>
 
-<h2>TODO</h2>
-<p>TODO</p>
+<!-- User Info -->
+<div id="user">
+	<h2><%= user.username %>'s Profile</h2><br />
+</div>
+<!-- Logo -->
+<img src="images/bookshare-logo.png" id="profileLogo" alt="BookShare Logo">
+<!-- New Listing Link -->
+<div id="links">
+	<div id="newListing">
+		<a href="list_book.php">New Listing</a>
+	</div>
+	<!-- Active Listings Toggle -->
+	<a id="toggle" href="#">Active Listings</a>
+	<div id="active">
 
 <% include partials/footer %>

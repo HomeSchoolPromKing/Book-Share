@@ -1,0 +1,57 @@
+<% include ../partials/header %>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>BookShare | <%= bookQuery %> </title>
+</head>
+
+<% include ../partials/nav %>
+
+<div id="results-body">
+
+	<div class="container">
+
+		<h1>TODO</h1>
+		<!-- <?php
+        include 'Model/fuzzy_search.php';
+
+		echo "You searched for '$search'.";
+
+        if ($results){
+
+            echo "<table> " ;
+            echo "<tr>"
+            . "<th id='title-th'>Title</th>"
+                    . "<th>Author</th>"
+                    . "<th>ISBN_10</th>"
+                    . "<th id='isbn13-th'>ISBN_13</th>"
+                    . "<th>Owner</th>"
+                    . "<th>Wants</th>"
+					. "<th id='contact-th'>Contact</th>"
+                    . "</tr>";
+
+			//"$results" is an associative array of the Search results
+			//This loop iterates through each record
+            foreach($results as $result){
+
+                echo "<tr><td>";
+                echo $result['title'] . "</td><td>";
+                echo $result['author'] . "</td><td>";
+                echo $result['ISBN-10'] . "</td><td>";
+                echo $result['ISBN-13'] . "</td><td>";
+                echo $result['owner'] . "</td><td>";
+                echo $result['wants'] . "</td><td class='contact-td'>";
+				echo "  <a href='request.php?book_id='".$result['book_ID']."' class='button' role='button'>
+							<i class='material-icons'>email</i>
+						</a>
+					 </td></tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "<br><br>No results found.";
+        }
+        ?> -->
+
+	</div>
+</div>
+
+<% include ../partials/footer %>

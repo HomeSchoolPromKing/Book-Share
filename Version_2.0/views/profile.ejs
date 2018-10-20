@@ -1,0 +1,52 @@
+<% include partials/header %>
+
+  <title>BookShare | My Profile</title>
+  <script>
+  $(function() {
+      $( "#toggle" ).click(function() {
+          $( "#active" ).toggle();
+      });
+  });
+  </script>
+  <style>
+    table, td ,tr, th {
+    	border: 1px solid black;
+    }
+
+    table {
+    	margin: 0 auto;
+    }
+
+    td {
+    	max-width: 150px;
+    	word-wrap: break-word;
+    	text-align: center;
+    }
+
+    th {
+    	text-align: center;
+    }
+    #active {
+    	margin-top: 50px;
+    }
+  </style>
+</head>
+
+<% include partials/nav %>
+
+<!-- User Info -->
+<div id="user">
+	<h2><%= user.username %>'s Profile</h2><br />
+</div>
+<!-- Logo -->
+<img src="images/bookshare-logo.png" id="profileLogo" alt="BookShare Logo">
+<!-- New Listing Link -->
+<div id="links">
+	<div id="newListing">
+		<a href="list_book.php">New Listing</a>
+	</div>
+	<!-- Active Listings Toggle -->
+	<a id="toggle" href="#">Active Listings</a>
+	<div id="active">
+
+<% include partials/footer %>

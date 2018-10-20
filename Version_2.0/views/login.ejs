@@ -1,0 +1,31 @@
+<% include partials/header %>
+
+<title>BookShare | Login</title>
+</head>
+
+<% include partials/nav %>
+
+<div id="login-body">
+  <div id="login-wrapper">
+    <div id="main">
+      <div id="login-container">
+
+				<% if (message.length > 0) { %>
+						<div class="alert alert-danger"><%= message %></div>
+				<% } %>
+
+          <form id="loginForm" action="/login" method="POST">
+	          <img src="images/bookshare-logo.png" alt="BookShare Logo" width="180" height="120" />
+	          <label for="username">Username:<input type="text" name="username" maxlength="18" required /></label>
+	          <label for="password">Password:<input type="text" name="password" maxlength="18" required /></label>
+          	<input type="submit" id="sign-in" value="Login" />
+        </form>
+
+        <p>Not already a member? <a href="/register">Sign Up</a>!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<% include partials/footer %>

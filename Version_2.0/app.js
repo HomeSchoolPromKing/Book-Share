@@ -10,7 +10,7 @@ var express           = require('express'),
 var indexRoutes = require('./routes/index'),
     bookRoutes  = require('./routes/books');
 
-mongoose.connect('mongodb://localhost:27017');
+mongoose.connect('mongodb+srv://bookSharer:2zetGVrUWtykzhhx@bookshare-p8xsw.mongodb.net/test?retryWrites=true');
 
 require('./config/passport')(passport);
 
